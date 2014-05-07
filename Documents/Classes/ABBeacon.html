@@ -35,11 +35,35 @@
 	
 	
 	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/advInterval">&nbsp;&nbsp;&nbsp;&nbsp;advInterval</option>
+	
+	<option value="//api/name/batteryLevel">&nbsp;&nbsp;&nbsp;&nbsp;batteryLevel</option>
+	
+	<option value="//api/name/distance">&nbsp;&nbsp;&nbsp;&nbsp;distance</option>
+	
+	<option value="//api/name/isConnected">&nbsp;&nbsp;&nbsp;&nbsp;isConnected</option>
+	
+	<option value="//api/name/macAddress">&nbsp;&nbsp;&nbsp;&nbsp;macAddress</option>
+	
+	<option value="//api/name/major">&nbsp;&nbsp;&nbsp;&nbsp;major</option>
+	
+	<option value="//api/name/measuredPower">&nbsp;&nbsp;&nbsp;&nbsp;measuredPower</option>
+	
+	<option value="//api/name/minor">&nbsp;&nbsp;&nbsp;&nbsp;minor</option>
+	
+	<option value="//api/name/peripheral">&nbsp;&nbsp;&nbsp;&nbsp;peripheral</option>
+	
+	<option value="//api/name/proximity">&nbsp;&nbsp;&nbsp;&nbsp;proximity</option>
+	
+	<option value="//api/name/proximityUUID">&nbsp;&nbsp;&nbsp;&nbsp;proximityUUID</option>
+	
+	<option value="//api/name/rssi">&nbsp;&nbsp;&nbsp;&nbsp;rssi</option>
+	
+	<option value="//api/name/txPower">&nbsp;&nbsp;&nbsp;&nbsp;txPower</option>
 	
 	
-	<option value="class_methods">Class Methods</option>
-	
-	<option value="//api/name/hexRepresentationWithSpacesAS:data:">&nbsp;&nbsp;&nbsp;&nbsp;+ hexRepresentationWithSpacesAS:data:</option>
 	
 	
 	
@@ -66,9 +90,15 @@
 	
 	<option value="//api/name/writeBeaconAdvInterval:withCompletion:">&nbsp;&nbsp;&nbsp;&nbsp;- writeBeaconAdvInterval:withCompletion:</option>
 	
+	<option value="//api/name/writeBeaconCommand:withCompletion:">&nbsp;&nbsp;&nbsp;&nbsp;- writeBeaconCommand:withCompletion:</option>
+	
 	<option value="//api/name/writeBeaconMajor:withCompletion:">&nbsp;&nbsp;&nbsp;&nbsp;- writeBeaconMajor:withCompletion:</option>
 	
+	<option value="//api/name/writeBeaconMeasuredPower:withCompletion:">&nbsp;&nbsp;&nbsp;&nbsp;- writeBeaconMeasuredPower:withCompletion:</option>
+	
 	<option value="//api/name/writeBeaconMinor:withCompletion:">&nbsp;&nbsp;&nbsp;&nbsp;- writeBeaconMinor:withCompletion:</option>
+	
+	<option value="//api/name/writeBeaconPasscode:withCompletion:">&nbsp;&nbsp;&nbsp;&nbsp;- writeBeaconPasscode:withCompletion:</option>
 	
 	<option value="//api/name/writeBeaconProximityUUID:withCompletion:">&nbsp;&nbsp;&nbsp;&nbsp;- writeBeaconProximityUUID:withCompletion:</option>
 	
@@ -88,6 +118,10 @@
 
 <li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Publicly available properties">Publicly available properties</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Properties available after connection">Properties available after connection</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Connection handling methods">Connection handling methods</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Methods for reading beacon configuration">Methods for reading beacon configuration</a></span></li>
@@ -100,13 +134,37 @@
 
 
 
-
-
-<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/hexRepresentationWithSpacesAS:data:">hexRepresentationWithSpacesAS:data:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/advInterval">advInterval</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/batteryLevel">batteryLevel</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/distance">distance</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/isConnected">isConnected</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/macAddress">macAddress</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/major">major</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/measuredPower">measuredPower</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/minor">minor</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/peripheral">peripheral</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/proximity">proximity</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/proximityUUID">proximityUUID</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/rssi">rssi</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/txPower">txPower</a></span></li>
 	
 </ul></li>
+
+
 
 
 
@@ -132,9 +190,15 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/writeBeaconAdvInterval:withCompletion:">writeBeaconAdvInterval:withCompletion:</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/writeBeaconCommand:withCompletion:">writeBeaconCommand:withCompletion:</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/writeBeaconMajor:withCompletion:">writeBeaconMajor:withCompletion:</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/writeBeaconMeasuredPower:withCompletion:">writeBeaconMeasuredPower:withCompletion:</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/writeBeaconMinor:withCompletion:">writeBeaconMinor:withCompletion:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/writeBeaconPasscode:withCompletion:">writeBeaconPasscode:withCompletion:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/writeBeaconProximityUUID:withCompletion:">writeBeaconProximityUUID:withCompletion:</a></span></li>
 	
@@ -179,6 +243,100 @@
 					<div class="section section-tasks">
 						<a title="Tasks" name="tasks"></a>
 						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						<a title="Publicly available properties" name="task_Publicly available properties"></a>
+						<h3 class="subsubtitle task-title">Publicly available properties</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/proximityUUID">&nbsp;&nbsp;proximityUUID</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/macAddress">&nbsp;&nbsp;macAddress</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/major">&nbsp;&nbsp;major</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/minor">&nbsp;&nbsp;minor</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/rssi">&nbsp;&nbsp;rssi</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/distance">&nbsp;&nbsp;distance</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/proximity">&nbsp;&nbsp;proximity</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/measuredPower">&nbsp;&nbsp;measuredPower</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
+						<a title="Properties available after connection" name="task_Properties available after connection"></a>
+						<h3 class="subsubtitle task-title">Properties available after connection</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/peripheral">&nbsp;&nbsp;peripheral</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/isConnected">&nbsp;&nbsp;isConnected</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/txPower">&nbsp;&nbsp;txPower</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/advInterval">&nbsp;&nbsp;advInterval</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/batteryLevel">&nbsp;&nbsp;batteryLevel</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
 						
 						
 						<a title="Connection handling methods" name="task_Connection handling methods"></a>
@@ -281,21 +439,25 @@
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/writeBeaconTxPower:withCompletion:">&ndash;&nbsp;writeBeaconTxPower:withCompletion:</a></code>
+		<code><a href="#//api/name/writeBeaconCommand:withCompletion:">&ndash;&nbsp;writeBeaconCommand:withCompletion:</a></code>
 	</span>
 	
 	
-</li>
-						</ul>
-						
-						
-						
-						<h3 class="subsubtitle task-title">Other Methods</h3>
-
-						<ul class="task-list">
-							<li>
+</li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/hexRepresentationWithSpacesAS:data:">+&nbsp;hexRepresentationWithSpacesAS:data:</a></code>
+		<code><a href="#//api/name/writeBeaconPasscode:withCompletion:">&ndash;&nbsp;writeBeaconPasscode:withCompletion:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/writeBeaconMeasuredPower:withCompletion:">&ndash;&nbsp;writeBeaconMeasuredPower:withCompletion:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/writeBeaconTxPower:withCompletion:">&ndash;&nbsp;writeBeaconTxPower:withCompletion:</a></code>
 	</span>
 	
 	
@@ -308,49 +470,27 @@
 					
 					
 					
-					
-					
 					<div class="section section-methods">
-						<a title="Class Methods" name="class_methods"></a>
-						<h2 class="subtitle subtitle-methods">Class Methods</h2>
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/hexRepresentationWithSpacesAS:data:" title="hexRepresentationWithSpacesAS:data:"></a>
-	<h3 class="subsubtitle method-title">hexRepresentationWithSpacesAS:data:</h3>
+	<a name="//api/name/advInterval" title="advInterval"></a>
+	<h3 class="subsubtitle method-title">advInterval</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>nsdata 转化位16进制NSString</p>
+		<p>advInterval</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>+ (NSString *)hexRepresentationWithSpacesAS:(BOOL)<em>spaces</em> data:(NSData *)<em>data</em></code></div>
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSNumber *advInterval</code></div>
 
     
 	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>spaces</em></dt>
-			<dd><p>是否空格</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>data</em></dt>
-			<dd><p>data</p></dd>
-		</dl>
-		
-	</div>
 	
-	
-	
-	<div class="method-subsection return">
-		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>hex String</p>
-	</div>
 	
 	
 	
@@ -358,7 +498,9 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>nsdata 转化位16进制NSString</p>
+		<p>advInterval</p>
+
+<p>Advertising interval of the beacon. Value change from 50ms to 2000ms. Value available after connection with the beacon</p>
 	</div>
 	
 	
@@ -369,13 +511,533 @@
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">ABBeacon.m</code><br />
+		<code class="declared-in-ref">ABBeacon.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/batteryLevel" title="batteryLevel"></a>
+	<h3 class="subsubtitle method-title">batteryLevel</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>batteryLevel</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSNumber *batteryLevel</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>batteryLevel</p>
+
+<p>Battery strength in %. Battery level change from 100% - 0%. Value available after connection with the beacon</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">ABBeacon.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/distance" title="distance"></a>
+	<h3 class="subsubtitle method-title">distance</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p><a href="#//api/name/proximity">proximity</a></p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSNumber *distance</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p><a href="#//api/name/proximity">proximity</a></p>
+
+<p>The value in this property gives a general sense of the relative distance to the beacon. Use it to quickly identify beacons that are nearer to the user rather than farther away.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">ABBeacon.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/isConnected" title="isConnected"></a>
+	<h3 class="subsubtitle method-title">isConnected</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>firmwareUpdateInfo</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) BOOL isConnected</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>firmwareUpdateInfo</p>
+
+<p>Flag indicating connection status.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">ABBeacon.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/macAddress" title="macAddress"></a>
+	<h3 class="subsubtitle method-title">macAddress</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>macAddress</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *macAddress</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>macAddress</p>
+
+<p>Discussion:
+Hardware MAC address of the beacon.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">ABBeacon.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/major" title="major"></a>
+	<h3 class="subsubtitle method-title">major</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>major</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSNumber *major</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>major</p>
+
+<p>Most significant value associated with the region. If a major value wasn&rsquo;t specified, this will be nil.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">ABBeacon.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/measuredPower" title="measuredPower"></a>
+	<h3 class="subsubtitle method-title">measuredPower</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>measuredPower</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSNumber *measuredPower</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>measuredPower</p>
+
+<p><a href="#//api/name/rssi">rssi</a> value measured from 1m. This value is used for device calibration.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">ABBeacon.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/minor" title="minor"></a>
+	<h3 class="subsubtitle method-title">minor</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>minor</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSNumber *minor</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>minor</p>
+
+<p>Least significant value associated with the region. If a minor value wasn&rsquo;t specified, this will be nil.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">ABBeacon.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/peripheral" title="peripheral"></a>
+	<h3 class="subsubtitle method-title">peripheral</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>peripheral</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) CBPeripheral *peripheral</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>peripheral</p>
+
+<p>peripheral object of beacon.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">ABBeacon.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/proximity" title="proximity"></a>
+	<h3 class="subsubtitle method-title">proximity</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>proximity</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic) CLProximity proximity</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>proximity</p>
+
+<p>The value in this property gives a general sense of the relative <a href="#//api/name/distance">distance</a> to the beacon. Use it to quickly identify beacons that are nearer to the user rather than farther away.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">ABBeacon.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/proximityUUID" title="proximityUUID"></a>
+	<h3 class="subsubtitle method-title">proximityUUID</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>proximityUUID</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSUUID *proximityUUID</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>proximityUUID</p>
+
+<p>Proximity identifier associated with the beacon.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">ABBeacon.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/rssi" title="rssi"></a>
+	<h3 class="subsubtitle method-title">rssi</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>rssi</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic) NSInteger rssi</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>rssi</p>
+
+<p>Received signal strength in decibels of the specified beacon.
+This value is an average of the RSSI samples collected since this beacon was last reported.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">ABBeacon.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/txPower" title="txPower"></a>
+	<h3 class="subsubtitle method-title">txPower</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>beacon power</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic) ABTxPower txPower</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>beacon power</p>
+
+<p>enum values of power, @see <a href="../Constants/ABTxPower.html">ABTxPower</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">ABBeacon.h</code><br />
 	</div>				
 	
 	
 </div>
 						
 					</div>
+					
+					
 					
 					
 					
@@ -602,7 +1264,7 @@ required)</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Read macAddress of connected beacon (Previous connection
+		<p>Read <a href="#//api/name/macAddress">macAddress</a> of connected beacon (Previous connection
 required)</p>
 	</div>		
 	
@@ -617,7 +1279,7 @@ required)</p>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>completion</em></dt>
-			<dd><p>block with macAddress value as param</p></dd>
+			<dd><p>block with <a href="#//api/name/macAddress">macAddress</a> value as param</p></dd>
 		</dl>
 		
 	</div>
@@ -635,7 +1297,7 @@ required)</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Read macAddress of connected beacon (Previous connection
+		<p>Read <a href="#//api/name/macAddress">macAddress</a> of connected beacon (Previous connection
 required)</p>
 	</div>
 	
@@ -660,7 +1322,7 @@ required)</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Read major of connected beacon (Previous connection
+		<p>Read <a href="#//api/name/major">major</a> of connected beacon (Previous connection
 required)</p>
 	</div>		
 	
@@ -675,7 +1337,7 @@ required)</p>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>completion</em></dt>
-			<dd><p>block with major value as param</p></dd>
+			<dd><p>block with <a href="#//api/name/major">major</a> value as param</p></dd>
 		</dl>
 		
 	</div>
@@ -693,7 +1355,7 @@ required)</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Read major of connected beacon (Previous connection
+		<p>Read <a href="#//api/name/major">major</a> of connected beacon (Previous connection
 required)</p>
 	</div>
 	
@@ -776,7 +1438,7 @@ required)</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Read minor of connected beacon (Previous connection
+		<p>Read <a href="#//api/name/minor">minor</a> of connected beacon (Previous connection
 required)</p>
 	</div>		
 	
@@ -791,7 +1453,7 @@ required)</p>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>completion</em></dt>
-			<dd><p>block with minor value as param</p></dd>
+			<dd><p>block with <a href="#//api/name/minor">minor</a> value as param</p></dd>
 		</dl>
 		
 	</div>
@@ -809,7 +1471,7 @@ required)</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Read minor of connected beacon (Previous connection
+		<p>Read <a href="#//api/name/minor">minor</a> of connected beacon (Previous connection
 required)</p>
 	</div>
 	
@@ -905,13 +1567,13 @@ required)</p>
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>completion</em></dt>
-			<dd><p>block handling operation completion</p></dd>
+			<dt><em>interval</em></dt>
+			<dd><p>interval of beacon (50 - 2000 ms)</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>advertising</em></dt>
-			<dd><p>interval of beacon (50 - 2000 ms)</p></dd>
+			<dt><em>completion</em></dt>
+			<dd><p>block handling operation completion</p></dd>
 		</dl>
 		
 	</div>
@@ -947,18 +1609,18 @@ required)</p>
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/writeBeaconMajor:withCompletion:" title="writeBeaconMajor:withCompletion:"></a>
-	<h3 class="subsubtitle method-title">writeBeaconMajor:withCompletion:</h3>
+	<a name="//api/name/writeBeaconCommand:withCompletion:" title="writeBeaconCommand:withCompletion:"></a>
+	<h3 class="subsubtitle method-title">writeBeaconCommand:withCompletion:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Writes major param to bluetooth connected beacon.</p>
+		<p>Writes command to connected beacon.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)writeBeaconMajor:(unsigned short)<em>major</em> withCompletion:(ABCompletionBlock)<em>completion</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)writeBeaconCommand:(NSString *)<em>command</em> withCompletion:(ABCompletionBlock)<em>completion</em></code></div>
 
     
 	
@@ -966,8 +1628,8 @@ required)</p>
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>major</em></dt>
-			<dd><p>major beacon value</p></dd>
+			<dt><em>command</em></dt>
+			<dd><p>command of beacon</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
@@ -990,7 +1652,129 @@ required)</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Writes major param to bluetooth connected beacon.</p>
+		<p>Writes command to connected beacon.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">ABBeacon.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/writeBeaconMajor:withCompletion:" title="writeBeaconMajor:withCompletion:"></a>
+	<h3 class="subsubtitle method-title">writeBeaconMajor:withCompletion:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Writes <a href="#//api/name/major">major</a> param to bluetooth connected beacon.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)writeBeaconMajor:(unsigned short)<em>major</em> withCompletion:(ABCompletionBlock)<em>completion</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>major</em></dt>
+			<dd><p><a href="#//api/name/major">major</a> beacon value</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>completion</em></dt>
+			<dd><p>block handling operation completion</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>void</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Writes <a href="#//api/name/major">major</a> param to bluetooth connected beacon.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">ABBeacon.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/writeBeaconMeasuredPower:withCompletion:" title="writeBeaconMeasuredPower:withCompletion:"></a>
+	<h3 class="subsubtitle method-title">writeBeaconMeasuredPower:withCompletion:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Writes power to connected beacon.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)writeBeaconMeasuredPower:(unsigned short)<em>power</em> withCompletion:(ABCompletionBlock)<em>completion</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>power</em></dt>
+			<dd><p>new power of beacon</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>completion</em></dt>
+			<dd><p>block handling operation completion</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>void</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Writes power to connected beacon.</p>
 	</div>
 	
 	
@@ -1014,7 +1798,7 @@ required)</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Writes minor param to bluetooth connected beacon.</p>
+		<p>Writes <a href="#//api/name/minor">minor</a> param to bluetooth connected beacon.</p>
 	</div>		
 	
     
@@ -1028,7 +1812,7 @@ required)</p>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>minor</em></dt>
-			<dd><p>minor beacon value</p></dd>
+			<dd><p><a href="#//api/name/minor">minor</a> beacon value</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
@@ -1051,7 +1835,68 @@ required)</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Writes minor param to bluetooth connected beacon.</p>
+		<p>Writes <a href="#//api/name/minor">minor</a> param to bluetooth connected beacon.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">ABBeacon.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/writeBeaconPasscode:withCompletion:" title="writeBeaconPasscode:withCompletion:"></a>
+	<h3 class="subsubtitle method-title">writeBeaconPasscode:withCompletion:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Writes passcode to connected beacon.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)writeBeaconPasscode:(NSString *)<em>passcode</em> withCompletion:(ABCompletionBlock)<em>completion</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>passcode</em></dt>
+			<dd><p>passcode of beacon</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>completion</em></dt>
+			<dd><p>block handling operation completion</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>void</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Writes passcode to connected beacon.</p>
 	</div>
 	
 	
@@ -1088,13 +1933,13 @@ required)</p>
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>completion</em></dt>
-			<dd><p>block handling operation completion</p></dd>
+			<dt><em>uuid</em></dt>
+			<dd><p>new Proximity UUID value</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>pUUID</em></dt>
-			<dd><p>new Proximity UUID value</p></dd>
+			<dt><em>completion</em></dt>
+			<dd><p>block handling operation completion</p></dd>
 		</dl>
 		
 	</div>
