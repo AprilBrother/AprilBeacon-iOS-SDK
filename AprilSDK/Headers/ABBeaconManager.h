@@ -241,8 +241,6 @@ monitoringDidFailForRegion:(ABBeaconRegion *)region
  * framework. Method is useful for older beacons discovery
  * that are not advertising as iBeacons.
  *
- * @param region April beacon region
- *
  * @return void
  */
 - (void)startAprilBeaconsDiscovery;
