@@ -65,10 +65,10 @@ Pod::Spec.new do |s|
   #
 
   # s.platform     = :ios
-  s.platform     = :ios, “7.0”
+  s.platform     = :ios, "7.0"
 
   #  When using multiple platforms
-   s.ios.deployment_target = “7.0”
+   s.ios.deployment_target = "7.0"
   # s.osx.deployment_target = "10.7"
 
 
@@ -78,7 +78,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/AprilBrother/AprilBeacon-iOS-SDK.git”, :tag => "0.0.1" }
+  s.source       = { :git => "https://github.com/AprilBrother/AprilBeacon-iOS-SDK.git", :tag => "0.0.1" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -89,7 +89,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = “AprilSDK/*.{h}”
+  s.source_files  = "AprilSDK/*.{h}"
   s.exclude_files = ""
 
   # s.public_header_files = "Classes/**/*.h"
@@ -118,7 +118,7 @@ Pod::Spec.new do |s|
   # s.framework  = "SomeFramework"
   # s.frameworks = "SomeFramework", "AnotherFramework"
 
-   s.library   = “AprilSDK/libAprilBeaconSDK.a”
+   s.library   = "AprilSDK/libAprilBeaconSDK.a"
   # s.libraries = "iconv", "xml2"
 
 
