@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>5A1B7596-9368-4510-92B2-81838DF9A912</string>
+	<key>IDESourceControlProjectName</key>
+	<string>AprilBeaconDemo</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>DD621916-D219-46BB-8E40-C51896A376C0</key>
+		<string>https://github.com/AprilBrother/AprilBeacon-iOS-SDK.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>AprilBeaconDemo/AprilBeaconDemo.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>DD621916-D219-46BB-8E40-C51896A376C0</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/AprilBrother/AprilBeacon-iOS-SDK.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>DD621916-D219-46BB-8E40-C51896A376C0</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DD621916-D219-46BB-8E40-C51896A376C0</string>
+			<key>IDESourceControlWCCName</key>
+			<string>AprilBeacon-iOS-SDK</string>
+		</dict>
+	</array>
+</dict>
+</plist>
