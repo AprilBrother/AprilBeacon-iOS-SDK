@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.name         = "AprilBeacon-iOS-SDK"
   s.version      = "0.0.1"
-  s.summary      = "AprilBeacon sdk for iOS, use this library communicate with beacons.”
+  s.summary      = "AprilBeacon SDK for iOS, use this library communicate with beacons."
 
   s.description  = <<-DESC
                    A longer description of AprilBeacon-iOS-SDK in Markdown format.
@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
                    * Finally, don't worry about the indent, CocoaPods strips it!
                    DESC
 
-  # s.homepage     = "http://github.com/AprilBrother/AprilBeacon-iOS-SDK"
+  s.homepage     = "https://github.com/AprilBrother/AprilBeacon-iOS-SDK"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
