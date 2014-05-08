@@ -1,38 +1,33 @@
 //
-//  ABViewController.m
+//  ABSelectDeviceViewController.m
 //  TestSDKPod
 //
-//  Created by liaojinhua on 14-5-7.
+//  Created by liaojinhua on 14-5-8.
 //  Copyright (c) 2014年 AprilBrother. All rights reserved.
 //
 
-#import "ABViewController.h"
+#import "ABSelectDeviceViewController.h"
 #import "ABTransmitters.h"
+#import "ABNotificationViewController.h"
 
-@interface ABViewController ()
+@interface ABSelectDeviceViewController ()
 
 @property (nonatomic, strong) ABBeaconManager *beaconManager;
 @property (nonatomic, strong) NSMutableArray *tableData;
 
 @end
 
-@implementation ABViewController
-
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-    if (self = [super initWithCoder:aDecoder]) {
-        self.beaconManager = [[ABBeaconManager alloc] init];
-        self.beaconManager.delegate = self;
-        
-        _tableData = [NSMutableArray array];
-    }
-    return self;
-}
+@implementation ABSelectDeviceViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    self.beaconManager = [[ABBeaconManager alloc] init];
+    self.beaconManager.delegate = self;
+    
+    _tableData = [NSMutableArray array];
     
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self
@@ -56,6 +51,19 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - segue
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"notificationDemo"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        ABBeacon *beacon = _tableData[indexPath.row];
+        
+        ABNotificationViewController *view = segue.destinationViewController;
+        view.beacon = beacon;
+    }
 }
 
 #pragma mark - Table view data source
@@ -143,7 +151,6 @@
                                                           identifier:regionIdentifier];
         [_beaconManager stopRangingBeaconsInRegion:beaconRegion];
     }];
-
+    
 }
-
 @end

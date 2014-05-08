@@ -21,6 +21,11 @@
 		E2ED5E761919E1F100C0BF2C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2ED5E581919E1F000C0BF2C /* UIKit.framework */; };
 		E2ED5E7E1919E1F100C0BF2C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E2ED5E7C1919E1F100C0BF2C /* InfoPlist.strings */; };
 		E2ED5E801919E1F100C0BF2C /* AprilBeaconDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ED5E7F1919E1F100C0BF2C /* AprilBeaconDemoTests.m */; };
+		E2ED5EE5191B32C600C0BF2C /* ABBluetoothViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ED5EDD191B32C600C0BF2C /* ABBluetoothViewController.m */; };
+		E2ED5EE6191B32C600C0BF2C /* ABNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ED5EDF191B32C600C0BF2C /* ABNotificationViewController.m */; };
+		E2ED5EE7191B32C600C0BF2C /* ABSelectDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ED5EE1191B32C600C0BF2C /* ABSelectDeviceViewController.m */; };
+		E2ED5EE8191B32C600C0BF2C /* ABTransmitters.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ED5EE4191B32C600C0BF2C /* ABTransmitters.m */; };
+		E2ED5EEC191B354300C0BF2C /* libAprilBeaconSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2ED5EEB191B354300C0BF2C /* libAprilBeaconSDK.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +58,15 @@
 		E2ED5E7B1919E1F100C0BF2C /* AprilBeaconDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AprilBeaconDemoTests-Info.plist"; sourceTree = "<group>"; };
 		E2ED5E7D1919E1F100C0BF2C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E2ED5E7F1919E1F100C0BF2C /* AprilBeaconDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AprilBeaconDemoTests.m; sourceTree = "<group>"; };
+		E2ED5EDC191B32C600C0BF2C /* ABBluetoothViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABBluetoothViewController.h; sourceTree = "<group>"; };
+		E2ED5EDD191B32C600C0BF2C /* ABBluetoothViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABBluetoothViewController.m; sourceTree = "<group>"; };
+		E2ED5EDE191B32C600C0BF2C /* ABNotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABNotificationViewController.h; sourceTree = "<group>"; };
+		E2ED5EDF191B32C600C0BF2C /* ABNotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABNotificationViewController.m; sourceTree = "<group>"; };
+		E2ED5EE0191B32C600C0BF2C /* ABSelectDeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABSelectDeviceViewController.h; sourceTree = "<group>"; };
+		E2ED5EE1191B32C600C0BF2C /* ABSelectDeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABSelectDeviceViewController.m; sourceTree = "<group>"; };
+		E2ED5EE3191B32C600C0BF2C /* ABTransmitters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTransmitters.h; sourceTree = "<group>"; };
+		E2ED5EE4191B32C600C0BF2C /* ABTransmitters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTransmitters.m; sourceTree = "<group>"; };
+		E2ED5EEB191B354300C0BF2C /* libAprilBeaconSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAprilBeaconSDK.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +77,7 @@
 				E2ED5E571919E1F000C0BF2C /* CoreGraphics.framework in Frameworks */,
 				E2ED5E591919E1F000C0BF2C /* UIKit.framework in Frameworks */,
 				E2ED5E551919E1F000C0BF2C /* Foundation.framework in Frameworks */,
+				E2ED5EEC191B354300C0BF2C /* libAprilBeaconSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +116,7 @@
 		E2ED5E531919E1F000C0BF2C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E2ED5EEB191B354300C0BF2C /* libAprilBeaconSDK.a */,
 				E2ED5E541919E1F000C0BF2C /* Foundation.framework */,
 				E2ED5E561919E1F000C0BF2C /* CoreGraphics.framework */,
 				E2ED5E581919E1F000C0BF2C /* UIKit.framework */,
@@ -112,6 +128,13 @@
 		E2ED5E5A1919E1F000C0BF2C /* AprilBeaconDemo */ = {
 			isa = PBXGroup;
 			children = (
+				E2ED5EDC191B32C600C0BF2C /* ABBluetoothViewController.h */,
+				E2ED5EDD191B32C600C0BF2C /* ABBluetoothViewController.m */,
+				E2ED5EDE191B32C600C0BF2C /* ABNotificationViewController.h */,
+				E2ED5EDF191B32C600C0BF2C /* ABNotificationViewController.m */,
+				E2ED5EE0191B32C600C0BF2C /* ABSelectDeviceViewController.h */,
+				E2ED5EE1191B32C600C0BF2C /* ABSelectDeviceViewController.m */,
+				E2ED5EE2191B32C600C0BF2C /* Model */,
 				E2ED5E631919E1F000C0BF2C /* ABAppDelegate.h */,
 				E2ED5E641919E1F000C0BF2C /* ABAppDelegate.m */,
 				E2ED5E661919E1F000C0BF2C /* Main.storyboard */,
@@ -150,6 +173,15 @@
 				E2ED5E7C1919E1F100C0BF2C /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E2ED5EE2191B32C600C0BF2C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E2ED5EE3191B32C600C0BF2C /* ABTransmitters.h */,
+				E2ED5EE4191B32C600C0BF2C /* ABTransmitters.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,8 +283,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2ED5E611919E1F000C0BF2C /* main.m in Sources */,
+				E2ED5EE7191B32C600C0BF2C /* ABSelectDeviceViewController.m in Sources */,
 				E2ED5E6B1919E1F000C0BF2C /* ABViewController.m in Sources */,
+				E2ED5EE5191B32C600C0BF2C /* ABBluetoothViewController.m in Sources */,
+				E2ED5EE6191B32C600C0BF2C /* ABNotificationViewController.m in Sources */,
 				E2ED5E651919E1F000C0BF2C /* ABAppDelegate.m in Sources */,
+				E2ED5EE8191B32C600C0BF2C /* ABTransmitters.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,7 +415,16 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AprilBeaconDemo/AprilBeaconDemo-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					../AprilSDK/Headers/,
+				);
 				INFOPLIST_FILE = "AprilBeaconDemo/AprilBeaconDemo-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -392,7 +437,16 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AprilBeaconDemo/AprilBeaconDemo-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					../AprilSDK/Headers/,
+				);
 				INFOPLIST_FILE = "AprilBeaconDemo/AprilBeaconDemo-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -457,6 +511,7 @@
 				E2ED5E851919E1F100C0BF2C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E2ED5E861919E1F100C0BF2C /* Build configuration list for PBXNativeTarget "AprilBeaconDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -465,6 +520,7 @@
 				E2ED5E881919E1F100C0BF2C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
