@@ -413,6 +413,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AprilBeaconDemo/AprilBeaconDemo-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -426,6 +428,7 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6303F291-4181-48E0-926F-0E304DC60DBB";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -435,6 +438,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AprilBeaconDemo/AprilBeaconDemo-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -448,6 +452,7 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6303F291-4181-48E0-926F-0E304DC60DBB";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

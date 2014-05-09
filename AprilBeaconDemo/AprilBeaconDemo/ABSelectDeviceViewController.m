@@ -13,7 +13,7 @@
 @interface ABSelectDeviceViewController ()
 
 @property (nonatomic, strong) ABBeaconManager *beaconManager;
-@property (nonatomic, strong) NSMutableArray *tableData;
+@property (nonatomic, strong) NSMutableDictionary *tableData;
 
 @end
 
@@ -27,7 +27,7 @@
     self.beaconManager = [[ABBeaconManager alloc] init];
     self.beaconManager.delegate = self;
     
-    _tableData = [NSMutableArray array];
+    _tableData = [NSMutableDictionary dictionary];
     
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self
@@ -59,7 +59,7 @@
 {
     if ([segue.identifier isEqualToString:@"notificationDemo"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        ABBeacon *beacon = _tableData[indexPath.row];
+        ABBeacon *beacon = [_tableData allValues][indexPath.section][indexPath.row];
         
         ABNotificationViewController *view = segue.destinationViewController;
         view.beacon = beacon;
@@ -68,14 +68,20 @@
 
 #pragma mark - Table view data source
 
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_tableData count];
+    return [[_tableData allValues][section] count];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return _tableData.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ABBeacon *beacon = _tableData[indexPath.row];
+    ABBeacon *beacon = [_tableData allValues][indexPath.section][indexPath.row];
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"beaconCell"];
     
@@ -105,16 +111,15 @@
 - (void)beaconManager:(ABBeaconManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(ABBeaconRegion *)region
 {
     [self.refreshControl endRefreshing];
-    [_tableData removeAllObjects];
-    [_tableData addObjectsFromArray:beacons];
+    [_tableData removeObjectForKey:region];
+    [_tableData setObject:beacons forKey:region];
     [self.tableView reloadData];
 }
 
 - (void)beaconManager:(ABBeaconManager *)manager rangingBeaconsDidFailForRegion:(ABBeaconRegion *)region withError:(NSError *)error
 {
     [self.refreshControl endRefreshing];
-    [self.refreshControl endRefreshing];
-    [_tableData removeAllObjects];
+    [_tableData removeObjectForKey:region];
     [self.tableView reloadData];
 }
 
