@@ -8,7 +8,7 @@
 ### From CocoaPods
 Add the following line to your Podfile:
 
-	pod ‘AprilBeacon-iOS-SDK', :git => 'https://github.com/AprilBrother/AprilBeacon-iOS-SDK.git'
+	pod ‘AprilBeacon-iOS-SDK'
 
 
 Then run the following command in the same directory as your Podfile:
