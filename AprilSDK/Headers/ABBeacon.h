@@ -107,7 +107,7 @@ typedef void(^ABStringCompletionBlock)(NSString* value, NSError* error);
 
 @end
 
-@interface ABBeacon : NSObject
+@interface ABBeacon : NSObject<NSCopying>
 
 @property (nonatomic, weak) id <ABBeaconDelegate> delegate;
 
@@ -303,6 +303,14 @@ typedef void(^ABStringCompletionBlock)(NSString* value, NSError* error);
  */
 - (void)readBeaconMeasuredPowerWithCompletion:(ABPowerCompletionBlock)completion;
 
+/**
+ * Read Tx power of connected beacon (Previous connection
+ * required)
+ *
+ * @param completion block with power value as param
+ *
+ * @return ABTxPower of beacon Tx power
+ */
 - (void)readBeaconTxPowerWithCompletion:(ABPowerCompletionBlock)completion;
 
 /**
@@ -317,6 +325,26 @@ typedef void(^ABStringCompletionBlock)(NSString* value, NSError* error);
 
 
 /// @name Methods for writing beacon configuration
+
+/**
+ * check password of connected beacon before write values
+ *
+ * @param password password of beacon
+ * @param completion block handling operation completion
+ *
+ * @return void
+ */
+- (void)writeBeaconPassword:(NSString *)password
+            withCompletion:(ABCompletionBlock)completion;
+
+/**
+ * Reset connected beacon.
+ *
+ * @param completion block handling operation completion
+ *
+ * @return void
+ */
+- (void)resetBeaconWithCompletion:(ABCompletionBlock)completion;
 
 /**
  * Writes Proximity UUID param to bluetooth connected beacon. Please  remember that If you change the UUID to your very own value anyone can read it, copy it and spoof your beacons. So if you are working on a mission critical application where security is an issue - be sure to implement it on your end. We are also working on a secure mode for our beacons and it will be included in one of the next firmware updates.
