@@ -1,12 +1,11 @@
 
 ## Docs
--------
 
 * [Current documentation](//aprilbrother.github.io/aprilbeacon-ios-sdk/Documents/index.html)
 * [Community for AprilBeacon](http://bbs.aprbrother.com)
 
 ## How to install
--------
+
 ### From CocoaPods
 
 Add the following line to your Podfile:
@@ -26,6 +25,5 @@ Then run the following command in the same directory as your Podfile:
 3. Add 'AprilSDK/Headers' (relative path to your project) to Header Search Paths in Build Settings of your target.
 
 ## Changelog
--------
 
-To see what has changed in recent versions of Estimote SDK, see the [CHANGELOG](https://github.com/AprilBrother/AprilBeacon-iOS-SDK/blob/master/CHANGELOG.md).
+To see what has changed in recent versions of April SDK, see the [CHANGELOG](https://github.com/AprilBrother/AprilBeacon-iOS-SDK/blob/master/CHANGELOG.md).
