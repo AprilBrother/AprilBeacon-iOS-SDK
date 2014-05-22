@@ -26,40 +26,12 @@
 }
 
 - (NSArray *)transmitters {
-    NSArray *result = [[NSUserDefaults standardUserDefaults] arrayForKey:kTransmitterKey];
-    if(nil == result) {
-        [self setupData];
-        result = [[NSUserDefaults standardUserDefaults] arrayForKey:kTransmitterKey];
-    }
-    return result;
-}
-
-- (void)addTransmitter:(NSDictionary *)transmitter {
-    NSMutableArray *mutableResult = [[self transmitters] mutableCopy];
-    [mutableResult addObject:transmitter];
-    
-    [[NSUserDefaults standardUserDefaults] setObject:mutableResult forKey:kTransmitterKey];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
-- (void)replaceAtIndex:(NSInteger)index withTransmitter:(NSDictionary *)transmitter {
-    NSMutableArray *mutableResult = [[self transmitters] mutableCopy];
-    [mutableResult replaceObjectAtIndex:index withObject:transmitter];
-    [[NSUserDefaults standardUserDefaults] setObject:mutableResult forKey:kTransmitterKey];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
-- (void)removeTransmitterAtIndex:(NSInteger)index {
-    NSMutableArray *mutableResult = [[self transmitters] mutableCopy];
-    [mutableResult removeObjectAtIndex:index];
-    
-    [[NSUserDefaults standardUserDefaults] setObject:mutableResult forKey:kTransmitterKey];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    return [self setupData];
 }
 
 #pragma mark - private
 
-- (void)setupData {
+- (NSArray *)setupData {
     NSArray *data = @[
                       @{
                           @"name" : @"AprilBeacon",
@@ -84,8 +56,7 @@
                           @"power" : @-59
                           },
                       ];
-    [[NSUserDefaults standardUserDefaults] setObject:data forKey:kTransmitterKey];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    return data;
 }
 
 @end

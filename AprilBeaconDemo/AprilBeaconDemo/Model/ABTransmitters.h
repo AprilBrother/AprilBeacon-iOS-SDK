@@ -13,8 +13,5 @@
 + (ABTransmitters *)sharedTransmitters;
 
 - (NSArray *)transmitters;
-- (void)addTransmitter:(NSDictionary *)transmitter;
-- (void)replaceAtIndex:(NSInteger)index withTransmitter:(NSDictionary *)transmitter;
-- (void)removeTransmitterAtIndex:(NSInteger)index;
 
 @end
