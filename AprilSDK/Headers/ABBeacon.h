@@ -327,15 +327,16 @@ typedef void(^ABStringCompletionBlock)(NSString* value, NSError* error);
 /// @name Methods for writing beacon configuration
 
 /**
- * check password of connected beacon before write values
+ * check password of connected beacon before write values. 
+ * new method for writeBeaconPassword
  *
  * @param password password of beacon
  * @param completion block handling operation completion
  *
  * @return void
  */
-- (void)writeBeaconPassword:(NSString *)password
-            withCompletion:(ABCompletionBlock)completion;
+- (void)authBeaconWithPassword:(NSString *)password
+                withCompletion:(ABCompletionBlock)completion;
 
 /**
  * Reset connected beacon.

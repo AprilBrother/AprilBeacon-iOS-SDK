@@ -1,4 +1,14 @@
-## 1.1.0 (May 19, 2014)
+## 1.0.2 (May 23, 2014)
+Features:
+
+ *  Change writeBeaconPassword method to authBeaconWithPassword
+ 
+ Bugfixes:
+
+  *  Read value crash on iOS 7.0
+  *  Error handle of peripheral actions
+ 
+## 1.0.1 (May 19, 2014)
 Features:
 
  *  Add auth and reset beacon method to ABBeacon
