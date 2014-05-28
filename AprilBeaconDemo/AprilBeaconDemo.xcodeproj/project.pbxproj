@@ -426,10 +426,10 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"/Users/liaojinhua/Documents/AprilBrother/WorkSpace/AprilBeacon-iOS-SDK/AprilSDK",
+					../AprilSDK,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6303F291-4181-48E0-926F-0E304DC60DBB";
+				PROVISIONING_PROFILE = "294175B7-2FC7-44EA-B3D6-CC61A178D767";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -451,10 +451,10 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"/Users/liaojinhua/Documents/AprilBrother/WorkSpace/AprilBeacon-iOS-SDK/AprilSDK",
+					../AprilSDK,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6303F291-4181-48E0-926F-0E304DC60DBB";
+				PROVISIONING_PROFILE = "294175B7-2FC7-44EA-B3D6-CC61A178D767";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
