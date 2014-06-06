@@ -8,11 +8,20 @@
 
 #import "ABAppDelegate.h"
 
+@interface ABAppDelegate ()
+{
+
+}
+
+@end
+
 @implementation ABAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    self.beaconManger = [[ABBeaconManager alloc] init];
+    self.beaconManger.delegate = self;
     return YES;
 }
 							
@@ -41,6 +50,22 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)beaconManager:(ABBeaconManager *)manager didEnterRegion:(ABBeaconRegion *)region
+{
+    UILocalNotification *notification = [[UILocalNotification alloc] init];
+    notification.alertBody = @"Enter monitoring region";
+    notification.soundName = UILocalNotificationDefaultSoundName;
+    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+}
+
+- (void)beaconManager:(ABBeaconManager *)manager didExitRegion:(ABBeaconRegion *)region
+{
+    UILocalNotification *notification = [[UILocalNotification alloc] init];
+    notification.alertBody = @"Exit monitoring region";
+    notification.soundName = UILocalNotificationDefaultSoundName;
+    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
 }
 
 @end

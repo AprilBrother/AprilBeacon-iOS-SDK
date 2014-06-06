@@ -40,10 +40,7 @@
 - (void)startMonitoringForRegion
 {
     if (!_region) {
-        self.region = [[ABBeaconRegion alloc] initWithProximityUUID:_beacon.proximityUUID
-                                                                     major:[_beacon.major intValue]
-                                                                     minor:[_beacon.minor intValue]
-                                                                identifier:_beacon.proximityUUID.UUIDString];
+        self.region = [[ABBeaconRegion alloc] initWithProximityUUID:_beacon.proximityUUID identifier:_beacon.proximityUUID.UUIDString];
     } else {
         [_beaconManager stopMonitoringForRegion:self.region];
     }
@@ -61,22 +58,6 @@
 - (IBAction)exitSwitchChanged:(UISwitch *)sender
 {
     [self startMonitoringForRegion];
-}
-
-- (void)beaconManager:(ABBeaconManager *)manager didEnterRegion:(ABBeaconRegion *)region
-{
-    UILocalNotification *notification = [[UILocalNotification alloc] init];
-    notification.alertBody = @"Enter monitoring region";
-    notification.soundName = UILocalNotificationDefaultSoundName;
-    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
-}
-
-- (void)beaconManager:(ABBeaconManager *)manager didExitRegion:(ABBeaconRegion *)region
-{
-    UILocalNotification *notification = [[UILocalNotification alloc] init];
-    notification.alertBody = @"Exit monitoring region";
-    notification.soundName = UILocalNotificationDefaultSoundName;
-    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
 }
 
 @end
