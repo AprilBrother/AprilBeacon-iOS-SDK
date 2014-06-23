@@ -168,6 +168,15 @@ monitoringDidFailForRegion:(ABBeaconRegion *)region
 - (void)startRangingBeaconsInRegion:(ABBeaconRegion*)region;
 
 /**
+ * Stops ranging April beacons.
+ *
+ * @param region April beacon region
+ *
+ * @return void
+ */
+- (void)stopRangingBeaconsInRegion:(ABBeaconRegion*)region;
+
+/**
  * Start monitoring for particular region.
  * Functionality works in the background mode as well.
  * Every time you enter or leave region appropriet
@@ -179,15 +188,6 @@ monitoringDidFailForRegion:(ABBeaconRegion *)region
  * @return void
  */
 - (void)startMonitoringForRegion:(ABBeaconRegion*)region;
-
-/**
- * Stops ranging April beacons.
- *
- * @param region April beacon region
- *
- * @return void
- */
-- (void)stopRangingBeaconsInRegion:(ABBeaconRegion*)region;
 
 /**
  * Unsubscribe application from iOS monitoring of

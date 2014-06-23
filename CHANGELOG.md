@@ -1,3 +1,16 @@
+## 1.0.3 (June 23, 2014)
+Features:
+
+ *  Support more April beacons
+ 
+ Improvment
+ 
+ *  Lazy alloc of object
+ 
+ Bugfixes:
+
+  *  Bug fix
+  
 ## 1.0.2 (May 23, 2014)
 Features:
 
