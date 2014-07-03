@@ -25,7 +25,7 @@
  * Allows to retrieve NSArray of all discoverd beacons
  * represented with ABBeacon objects.
  *
- * @param manager:April beacon manager
+ * @param manager April beacon manager
  * @param beacons all beacons as ABBeacon objects
  * @param region April beacon region
  *
@@ -121,7 +121,6 @@ monitoringDidFailForRegion:(ABBeaconRegion *)region
  *
  * @param manager April beacon manager
  * @param beacons all beacons as ABBeacon objects
- * @param region April beacon region
  *
  * @return void
  */
@@ -244,6 +243,15 @@ monitoringDidFailForRegion:(ABBeaconRegion *)region
  * @return void
  */
 - (void)startAprilBeaconsDiscovery;
+
+/**
+ * Start sensor discovery process based on CoreBluetooth
+ * framework. Method is useful for older beacons discovery
+ * that are not advertising as iBeacons.
+ *
+ * @return void
+ */
+- (void)startAprilSensorsDiscovery;
 
 
 /**

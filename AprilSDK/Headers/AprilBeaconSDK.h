@@ -9,3 +9,4 @@
 #import "ABBeaconManager.h"
 #import "ABBeaconRegion.h"
 #import "ABBeacon.h"
+#import "ABSensor.h"

@@ -1,3 +1,12 @@
+## 1.1.0 (July 3, 2014)
+Features:
+
+ *  Add sensor apis
+
+ Bugfixes:
+
+  *  Fix can't scan april beacons when connect to a beacon
+  
 ## 1.0.3 (June 23, 2014)
 Features:
 
