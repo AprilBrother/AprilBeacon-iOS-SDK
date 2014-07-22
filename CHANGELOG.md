@@ -1,3 +1,9 @@
+## 1.1.1 (July 22, 2014)
+Features:
+
+*  Add firmwareRevision and manufacturerName property to ABBeacon
+*  Add custom filter to ABBeaconManager. developer can find his own beacon with specified prefix name.
+  
 ## 1.1.0 (July 3, 2014)
 Features:
 
