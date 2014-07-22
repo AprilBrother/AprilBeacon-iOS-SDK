@@ -261,4 +261,20 @@ monitoringDidFailForRegion:(ABBeaconRegion *)region
  */
 - (void)stopAprilBeaconDiscovery;
 
+/**
+ * Beacons whose name begin with specified name can be found.
+ *
+ * @param beaconPrefixName name want to discovered
+ * @return void
+ */
+- (void)addCustomBeaconNameFilter:(NSString *)beaconPrefixName;
+
+/**
+ * Remove filter of specified name.
+ *
+ * @param beaconPrefixName name want to removed from filter;
+ * @return void
+ */
+- (void)removeCustomBeaconNameFilter:(NSString *)beaconPrefixName;
+
 @end

@@ -215,6 +215,19 @@ typedef void(^ABStringCompletionBlock)(NSString* value, NSError* error);
  */
 @property (nonatomic, strong)   NSNumber*               batteryLevel;
 
+/**
+ *  firmwareRevision
+ *
+ *    Firmware revision of beacon. Value available after connection with the beacon
+ */
+@property (nonatomic, strong)   NSString*               firmwareRevision;
+
+/**
+ *  manufacturerName
+ *
+ *    Manufacturer name of beacon. Value available after connection with the beacon
+ */
+@property (nonatomic, strong)   NSString*               manufacturerName;
 
 
 /// @name Connection handling methods
