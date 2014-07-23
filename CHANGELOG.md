@@ -1,3 +1,9 @@
+## 1.1.2 (July 23, 2014)
+Bug fixes:
+
+*  Multi callback when connected
+*  Modify tx power failed 
+
 ## 1.1.1 (July 22, 2014)
 Features:
 
