@@ -31,6 +31,9 @@
     [self.refreshControl addTarget:self
                             action:@selector(startRangeBeacons)
                   forControlEvents:UIControlEventValueChanged];
+    
+    [self.beaconManager addCustomBeaconNameFilter:@"AprilBeacon"];
+//    [self.beaconManager removeCustomBeaconNameFilter:@"AprilBeacon"];
 }
 
 - (void)viewWillAppear:(BOOL)animated
