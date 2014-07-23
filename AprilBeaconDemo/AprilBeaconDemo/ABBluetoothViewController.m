@@ -7,6 +7,7 @@
 //
 
 #import "ABBluetoothViewController.h"
+#import "ABModifyViewController.h"
 
 @interface ABBluetoothViewController ()
 
@@ -50,6 +51,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"ModifySegue"]) {
+        ABModifyViewController *vc = segue.destinationViewController;
+        vc.beacon = sender;
+    }
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -68,6 +77,11 @@
     cell.detailTextLabel.text = [peripheral.identifier UUIDString];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"ModifySegue" sender:_tableData[indexPath.row]];
 }
 
 
