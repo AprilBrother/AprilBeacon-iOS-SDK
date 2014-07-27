@@ -229,6 +229,13 @@ typedef void(^ABStringCompletionBlock)(NSString* value, NSError* error);
  */
 @property (nonatomic, strong)   NSString*               manufacturerName;
 
+/**
+ *  modelNumber
+ *
+ *    Model number of beacon. Value available after connection with the beacon
+ */
+@property (nonatomic, strong)   NSString*               modelNumber;
+
 
 /// @name Connection handling methods
 

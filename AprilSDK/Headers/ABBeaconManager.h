@@ -261,6 +261,8 @@ monitoringDidFailForRegion:(ABBeaconRegion *)region
  */
 - (void)stopAprilBeaconDiscovery;
 
+/// @name Scan settings through bluetooth
+
 /**
  * Beacons whose name begin with specified name can be found.
  *

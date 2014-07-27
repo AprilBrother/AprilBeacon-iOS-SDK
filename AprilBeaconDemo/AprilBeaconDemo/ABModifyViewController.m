@@ -76,6 +76,7 @@ typedef enum {
     _advIntervalField.text = [NSString stringWithFormat:@"%@", self.beacon.advInterval];
     NSLog(@"Firmware Revision: %@", self.beacon.firmwareRevision);
     NSLog(@"Manufacturer Nmae: %@", self.beacon.manufacturerName);
+    NSLog(@"Model Number:%@", self.beacon.modelNumber);
 }
 
 - (void)beaconDidDisconnect:(ABBeacon *)beacon withError:(NSError *)error
