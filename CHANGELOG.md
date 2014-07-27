@@ -1,3 +1,8 @@
+## 1.1.3 (July 27, 2014)
+Features:
+
+*  Add  modelNumber property to ABBeacon
+
 ## 1.1.2 (July 23, 2014)
 Bug fixes:
 
