@@ -1,3 +1,8 @@
+## 1.1.4 (Aug 11, 2014)
+Bug fixes:
+
+*  Modify UUID failed in iOS8
+
 ## 1.1.3 (July 27, 2014)
 Features:
 
