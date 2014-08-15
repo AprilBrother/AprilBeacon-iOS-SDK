@@ -30,6 +30,9 @@
 		E2ED5EE6191B32C600C0BF2C /* ABNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ED5EDF191B32C600C0BF2C /* ABNotificationViewController.m */; };
 		E2ED5EE7191B32C600C0BF2C /* ABSelectDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ED5EE1191B32C600C0BF2C /* ABSelectDeviceViewController.m */; };
 		E2ED5EE8191B32C600C0BF2C /* ABTransmitters.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ED5EE4191B32C600C0BF2C /* ABTransmitters.m */; };
+		E2FB5642199DA9780038CAA8 /* ABSensorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FB5640199DA9780038CAA8 /* ABSensorViewController.m */; };
+		E2FB5645199DA9A70038CAA8 /* ABSensorListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FB5644199DA9A70038CAA8 /* ABSensorListViewController.m */; };
+		E2FB5647199DAC2E0038CAA8 /* tile_floor.png in Resources */ = {isa = PBXBuildFile; fileRef = E2FB5646199DAC2E0038CAA8 /* tile_floor.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +82,11 @@
 		E2ED5EE1191B32C600C0BF2C /* ABSelectDeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABSelectDeviceViewController.m; sourceTree = "<group>"; };
 		E2ED5EE3191B32C600C0BF2C /* ABTransmitters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTransmitters.h; sourceTree = "<group>"; };
 		E2ED5EE4191B32C600C0BF2C /* ABTransmitters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTransmitters.m; sourceTree = "<group>"; };
+		E2FB5640199DA9780038CAA8 /* ABSensorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABSensorViewController.m; sourceTree = "<group>"; };
+		E2FB5641199DA9780038CAA8 /* ABSensorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABSensorViewController.h; sourceTree = "<group>"; };
+		E2FB5643199DA9A70038CAA8 /* ABSensorListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABSensorListViewController.h; sourceTree = "<group>"; };
+		E2FB5644199DA9A70038CAA8 /* ABSensorListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABSensorListViewController.m; sourceTree = "<group>"; };
+		E2FB5646199DAC2E0038CAA8 /* tile_floor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tile_floor.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +130,7 @@
 		E2ED5E481919E1F000C0BF2C = {
 			isa = PBXGroup;
 			children = (
+				E2FB5646199DAC2E0038CAA8 /* tile_floor.png */,
 				E26EB6AD197F5374007619B1 /* JVFloatLabeledTextField */,
 				E2ED5E5A1919E1F000C0BF2C /* AprilBeaconDemo */,
 				E2ED5E791919E1F100C0BF2C /* AprilBeaconDemoTests */,
@@ -154,6 +163,10 @@
 		E2ED5E5A1919E1F000C0BF2C /* AprilBeaconDemo */ = {
 			isa = PBXGroup;
 			children = (
+				E2FB5641199DA9780038CAA8 /* ABSensorViewController.h */,
+				E2FB5640199DA9780038CAA8 /* ABSensorViewController.m */,
+				E2FB5643199DA9A70038CAA8 /* ABSensorListViewController.h */,
+				E2FB5644199DA9A70038CAA8 /* ABSensorListViewController.m */,
 				E2ED5EDC191B32C600C0BF2C /* ABBluetoothViewController.h */,
 				E2ED5EDD191B32C600C0BF2C /* ABBluetoothViewController.m */,
 				E2ED5EDE191B32C600C0BF2C /* ABNotificationViewController.h */,
@@ -289,6 +302,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2FB5647199DAC2E0038CAA8 /* tile_floor.png in Resources */,
 				E2ED5E6D1919E1F000C0BF2C /* Images.xcassets in Resources */,
 				E2ED5E5F1919E1F000C0BF2C /* InfoPlist.strings in Resources */,
 				E2ED5E681919E1F000C0BF2C /* Main.storyboard in Resources */,
@@ -317,9 +331,11 @@
 				E26EB6B5197F5374007619B1 /* JVFloatLabeledTextView.m in Sources */,
 				E26EB6B6197F5374007619B1 /* NSString+TextDirectionality.m in Sources */,
 				E2ED5EE5191B32C600C0BF2C /* ABBluetoothViewController.m in Sources */,
+				E2FB5642199DA9780038CAA8 /* ABSensorViewController.m in Sources */,
 				E2ED5EE6191B32C600C0BF2C /* ABNotificationViewController.m in Sources */,
 				E26EB6AC197F5323007619B1 /* ABModifyViewController.m in Sources */,
 				E2ED5E651919E1F000C0BF2C /* ABAppDelegate.m in Sources */,
+				E2FB5645199DA9A70038CAA8 /* ABSensorListViewController.m in Sources */,
 				E2ED5EE8191B32C600C0BF2C /* ABTransmitters.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

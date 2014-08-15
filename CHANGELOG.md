@@ -1,3 +1,8 @@
+## 1.1.5 (Aug 15, 2014)
+Optimize:
+
+*  Update sensor value more stable
+
 ## 1.1.4 (Aug 11, 2014)
 Bug fixes:
 
