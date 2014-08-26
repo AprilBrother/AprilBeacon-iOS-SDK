@@ -1,3 +1,8 @@
+## 1.1.6 (Aug 26, 2014)
+Buf fixes:
+
+*  Can't callback when connected
+
 ## 1.1.5 (Aug 15, 2014)
 Optimize:
 
