@@ -1,3 +1,8 @@
+## 1.1.7 (Sep 1, 2014)
+Buf fixes:
+
+*  Clean stored beacons when stop discovery
+
 ## 1.1.6 (Aug 26, 2014)
 Buf fixes:
 
