@@ -31,9 +31,7 @@ typedef struct {
 /**
  *    Accelerometer value callback method.
  *
- *    @param angleAccX angle of x axis
- *    @param angleAccY angle of y axis
- *    @param angleAccZ angle of z axis
+ *    @param acceleration @see ABAcceleration
  */
 typedef void(^ABAccValueChangedBlock)(ABAcceleration acceleration);
 

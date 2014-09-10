@@ -1,3 +1,16 @@
+## 1.2.0 (Sep 10, 2014)
+Feature:
+
+*  Return acceleration value of the accelerometer sensor
+
+Optimize:
+
+*  Merge connection callback method to one
+
+Bug fixes:
+
+*  Can not get callback when beacon connected
+
 ## 1.1.7 (Sep 1, 2014)
 Buf fixes:
 

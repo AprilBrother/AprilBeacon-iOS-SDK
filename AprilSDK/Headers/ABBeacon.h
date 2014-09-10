@@ -14,9 +14,13 @@
 
 /// April Beacon power value definition
 typedef NS_ENUM(NSInteger, ABTxPower)  {
+    /** Default value for tx power */
     ABTxPower0DBM = 0,
+    /** The max value for tx power */
     ABTxPower4DBM = 1,
+    /** Small value for tx power */
     ABTxPowerMinus6DBM = 2,
+    /** The min value for tx power */
     ABTxPowerMinus23DBM = 3
 };
 
