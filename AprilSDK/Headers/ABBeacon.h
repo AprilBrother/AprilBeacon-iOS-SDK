@@ -76,24 +76,18 @@ typedef void(^ABStringCompletionBlock)(NSString* value, NSError* error);
 
 @optional
 
-/**
- * Delegate method that indicates error in beacon connection.
- *
- * @param beacon reference to beacon object
- * @param error information about reason of error
- *
- * @return void
- */
-- (void)beaconConnectionDidFail:(ABBeacon*)beacon withError:(NSError*)error;
 
 /**
- * Delegate method that indicates success in beacon connection.
+ * Delegate method that beacon did connected with error.
+ * if error is not nil, means beacon didn't be connected
+ * or beacon connected
  *
  * @param beacon reference to beacon object
+ * @param error beacon connect failed error or nil
  *
  * @return void
  */
-- (void)beaconConnectionDidSucceeded:(ABBeacon*)beacon;
+- (void)beaconDidConnected:(ABBeacon*)beacon withError:(NSError *)error;
 
 /**
  * Delegate method that beacon did disconnect with device.

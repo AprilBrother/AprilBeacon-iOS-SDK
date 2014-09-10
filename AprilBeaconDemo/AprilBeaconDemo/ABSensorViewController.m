@@ -145,10 +145,13 @@ const GLubyte Indices[] = {
     self.sensor.delegate = self;
     [self connectToPeripheral];
     __weak ABSensorViewController *wSelf = self;
-    [self.sensor setAccValueChangedBlock:^(double angleAccX, double angleAccY, double angleAccZ) {
-        wSelf.angleAccX = angleAccX;
-        wSelf.angleAccY = angleAccY;
-        wSelf.angleAccZ = angleAccZ;
+    [self.sensor setAccValueChangedBlock:^(ABAcceleration acceleration) {
+        CGFloat Ax = acceleration.x;
+        CGFloat Ay = acceleration.y;
+        CGFloat Az = acceleration.z;
+        wSelf.angleAccX = atan(Ax/sqrt(Az*Az+Ay*Ay))*180/3.14;
+        wSelf.angleAccY = atan(Ay/sqrt(Ax*Ax+Az*Az))*180/3.14;
+        wSelf.angleAccZ = atan(Az/sqrt(Ax*Ax+Ay*Ay))*180/3.14;
         wSelf.dataUpdated = YES;
     }];
     

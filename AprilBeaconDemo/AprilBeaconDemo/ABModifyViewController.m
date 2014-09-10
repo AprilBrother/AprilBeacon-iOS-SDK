@@ -65,8 +65,12 @@ typedef enum {
 
 #pragma mark - ABBeaconDelegate
 
-- (void)beaconConnectionDidSucceeded:(ABBeacon *)beacon
+- (void)beaconDidConnected:(ABBeacon *)beacon withError:(NSError *)error
 {
+    if (error) {
+        [self showAlertWithMessage:@"connect failed"];
+        return;
+    }
     _uuidField.text = self.beacon.proximityUUID.UUIDString;
     _majorField.text = [NSString stringWithFormat:@"%@", self.beacon.major];
     _minorField.text = [NSString stringWithFormat:@"%@", self.beacon.minor];
@@ -84,10 +88,6 @@ typedef enum {
     
 }
 
-- (void)beaconConnectionDidFail:(ABBeacon *)beacon withError:(NSError *)error
-{
-    
-}
 
 - (IBAction)saveAction:(id)sender
 {

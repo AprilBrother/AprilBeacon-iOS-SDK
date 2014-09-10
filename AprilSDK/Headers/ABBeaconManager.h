@@ -36,7 +36,7 @@
              inRegion:(ABBeaconRegion *)region;
 
 /**
- * Delegate method invoked wehen ranging fails
+ * Delegate method invoked when ranging fails
  * for particular region. Related NSError object passed.
  *
  * @param manager April beacon manager
@@ -51,7 +51,7 @@ rangingBeaconsDidFailForRegion:(ABBeaconRegion *)region
 
 
 /**
- * Delegate method invoked wehen monitoring fails
+ * Delegate method invoked when monitoring fails
  * for particular region. Related NSError object passed.
  *
  * @param manager April beacon manager
