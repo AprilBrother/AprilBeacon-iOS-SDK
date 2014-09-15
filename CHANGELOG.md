@@ -1,3 +1,9 @@
+## 1.2.1 (Sep 15, 2014)
+Bug fixes:
+
+*  Remove all beacons when start discover
+*  Issue that can't remove custom filter name
+  
 ## 1.2.0 (Sep 10, 2014)
 Feature:
 
