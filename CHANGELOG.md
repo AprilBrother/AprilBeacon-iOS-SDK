@@ -1,3 +1,8 @@
+## 1.2.2 (Sep 22, 2014)
+Bug fixes:
+
+*  Build error in xocde 5
+
 ## 1.2.1 (Sep 15, 2014)
 Bug fixes:
 
