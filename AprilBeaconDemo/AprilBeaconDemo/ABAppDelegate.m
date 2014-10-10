@@ -22,6 +22,9 @@
     // Override point for customization after application launch.
     self.beaconManger = [[ABBeaconManager alloc] init];
     self.beaconManger.delegate = self;
+    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
+        [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
+    }
     return YES;
 }
 							

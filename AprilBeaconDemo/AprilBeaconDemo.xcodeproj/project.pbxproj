@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E224EF88192D9D8400AB5D9B /* libAprilBeaconSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E224EF87192D9D8400AB5D9B /* libAprilBeaconSDK.a */; };
+		E254A8D419E7B4DE007BBE3C /* libAprilBeaconSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E254A8D319E7B4DE007BBE3C /* libAprilBeaconSDK.a */; };
 		E26EB6AC197F5323007619B1 /* ABModifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E26EB6AB197F5323007619B1 /* ABModifyViewController.m */; };
 		E26EB6B4197F5374007619B1 /* JVFloatLabeledTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = E26EB6AF197F5374007619B1 /* JVFloatLabeledTextField.m */; };
 		E26EB6B5197F5374007619B1 /* JVFloatLabeledTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E26EB6B1197F5374007619B1 /* JVFloatLabeledTextView.m */; };
@@ -46,7 +46,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E224EF87192D9D8400AB5D9B /* libAprilBeaconSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAprilBeaconSDK.a; path = ../AprilSDK/libAprilBeaconSDK.a; sourceTree = "<group>"; };
+		E254A8CE19E7B4DE007BBE3C /* ABBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABBeacon.h; sourceTree = "<group>"; };
+		E254A8CF19E7B4DE007BBE3C /* ABBeaconManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABBeaconManager.h; sourceTree = "<group>"; };
+		E254A8D019E7B4DE007BBE3C /* ABBeaconRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABBeaconRegion.h; sourceTree = "<group>"; };
+		E254A8D119E7B4DE007BBE3C /* ABSensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABSensor.h; sourceTree = "<group>"; };
+		E254A8D219E7B4DE007BBE3C /* AprilBeaconSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AprilBeaconSDK.h; sourceTree = "<group>"; };
+		E254A8D319E7B4DE007BBE3C /* libAprilBeaconSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAprilBeaconSDK.a; sourceTree = "<group>"; };
 		E26EB6AA197F5323007619B1 /* ABModifyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABModifyViewController.h; sourceTree = "<group>"; };
 		E26EB6AB197F5323007619B1 /* ABModifyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABModifyViewController.m; sourceTree = "<group>"; };
 		E26EB6AE197F5374007619B1 /* JVFloatLabeledTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVFloatLabeledTextField.h; sourceTree = "<group>"; };
@@ -97,7 +102,7 @@
 				E2ED5E571919E1F000C0BF2C /* CoreGraphics.framework in Frameworks */,
 				E2ED5E591919E1F000C0BF2C /* UIKit.framework in Frameworks */,
 				E2ED5E551919E1F000C0BF2C /* Foundation.framework in Frameworks */,
-				E224EF88192D9D8400AB5D9B /* libAprilBeaconSDK.a in Frameworks */,
+				E254A8D419E7B4DE007BBE3C /* libAprilBeaconSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +119,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E254A8CC19E7B4DE007BBE3C /* AprilSDK */ = {
+			isa = PBXGroup;
+			children = (
+				E254A8CD19E7B4DE007BBE3C /* Headers */,
+				E254A8D319E7B4DE007BBE3C /* libAprilBeaconSDK.a */,
+			);
+			name = AprilSDK;
+			path = ../AprilSDK;
+			sourceTree = "<group>";
+		};
+		E254A8CD19E7B4DE007BBE3C /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				E254A8CE19E7B4DE007BBE3C /* ABBeacon.h */,
+				E254A8CF19E7B4DE007BBE3C /* ABBeaconManager.h */,
+				E254A8D019E7B4DE007BBE3C /* ABBeaconRegion.h */,
+				E254A8D119E7B4DE007BBE3C /* ABSensor.h */,
+				E254A8D219E7B4DE007BBE3C /* AprilBeaconSDK.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
 		E26EB6AD197F5374007619B1 /* JVFloatLabeledTextField */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +157,7 @@
 		E2ED5E481919E1F000C0BF2C = {
 			isa = PBXGroup;
 			children = (
+				E254A8CC19E7B4DE007BBE3C /* AprilSDK */,
 				E2FB5646199DAC2E0038CAA8 /* tile_floor.png */,
 				E26EB6AD197F5374007619B1 /* JVFloatLabeledTextField */,
 				E2ED5E5A1919E1F000C0BF2C /* AprilBeaconDemo */,
@@ -151,7 +179,6 @@
 		E2ED5E531919E1F000C0BF2C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E224EF87192D9D8400AB5D9B /* libAprilBeaconSDK.a */,
 				E2ED5E541919E1F000C0BF2C /* Foundation.framework */,
 				E2ED5E561919E1F000C0BF2C /* CoreGraphics.framework */,
 				E2ED5E581919E1F000C0BF2C /* UIKit.framework */,
@@ -475,6 +502,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					../AprilSDK,
+					"/Users/liaojinhua/Documents/AprilBrother/WorkSpace/AprilBeacon-iOS-SDK/AprilSDK",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "99a6ec5f-bacd-43c9-bcd0-435f9430b820";
@@ -500,6 +528,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					../AprilSDK,
+					"/Users/liaojinhua/Documents/AprilBrother/WorkSpace/AprilBeacon-iOS-SDK/AprilSDK",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "99a6ec5f-bacd-43c9-bcd0-435f9430b820";
