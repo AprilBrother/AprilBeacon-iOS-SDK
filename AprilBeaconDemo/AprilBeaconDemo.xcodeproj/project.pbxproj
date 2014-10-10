@@ -477,7 +477,7 @@
 					../AprilSDK,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3f39625d-d28c-4e3d-82d1-ae4b2a01d6a0";
+				PROVISIONING_PROFILE = "99a6ec5f-bacd-43c9-bcd0-435f9430b820";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -502,7 +502,7 @@
 					../AprilSDK,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3f39625d-d28c-4e3d-82d1-ae4b2a01d6a0";
+				PROVISIONING_PROFILE = "99a6ec5f-bacd-43c9-bcd0-435f9430b820";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
