@@ -1,7 +1,13 @@
+## 1.2.4 (Oct 22, 2014)
+Features:
+
+*  Support iPhone 5s, iPhone 6, iPhone 6 plus simulator build
+
 ## 1.2.3 (Oct 10, 2014)
 Features:
 
 *  iOS 8 support
+
 ## 1.2.2 (Sep 22, 2014)
 Bug fixes:
 
