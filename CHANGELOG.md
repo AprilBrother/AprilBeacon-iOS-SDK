@@ -1,3 +1,16 @@
+## 1.3.0（Mar 19, 2015）
+Features:
+
+*  Add a method to modify all values of iBeacon. 
+*  If you set password parameter to nil, it will use the default password AprilBrother to replace. 
+*  Add custom error definitions
+*  Adjust writing logic. 
+
+Bug fixes:
+
+*  Writing failed
+*  Wrong connect state
+
 ## 1.2.4 (Oct 22, 2014)
 Features:
 
