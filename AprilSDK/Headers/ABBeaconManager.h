@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "ABBeaconRegion.h"
 
+@import CoreBluetooth;
+@import CoreLocation;
+
 @class ABBeaconManager;
 
 /**
@@ -142,7 +145,9 @@ monitoringDidFailForRegion:(ABBeaconRegion *)region
  
  */
 
-@interface ABBeaconManager : NSObject
+@interface ABBeaconManager : NSObject <CLLocationManagerDelegate,
+CBPeripheralManagerDelegate,
+CBCentralManagerDelegate>
 
 @property (nonatomic, weak) id <ABBeaconManagerDelegate> delegate;
 

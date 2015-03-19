@@ -23,8 +23,6 @@ typedef enum {
 
 @property (nonatomic) UInt8 deviceTxPower;
 
-@property (nonatomic, strong) NSMutableArray *modifyingArray;
-
 @end
 
 @implementation ABModifyViewController
@@ -42,11 +40,8 @@ typedef enum {
 {
     [super viewDidLoad];
     _txPowerIndex = @[@"0dBm", @"4dBm", @"-6dBm", @"-23dBm"];
-    _uuidField.inputAccessoryView = _uuidToolbar;
     self.beacon.delegate = self;
     [self.beacon connectToBeacon];
-    
-    _modifyingArray = [NSMutableArray array];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -91,116 +86,104 @@ typedef enum {
 
 - (IBAction)saveAction:(id)sender
 {
-    [self.beacon authBeaconWithPassword:@"AprilBrother" withCompletion:^(NSError *error) {
-        if (!error) {
-            [self doModify];
-        }
-    }];
-    
+    [self doModify];
 }
 
 - (void)removeObjectFromModifyingArray:(id)obj
 {
-    [_modifyingArray removeObject:obj];
-    if (_modifyingArray.count == 0) {
-        [self.beacon resetBeaconWithCompletion:^(NSError *error) {
-            // do something when get error
-            [self showAlertWithMessage:@"Modify done"];
-        }];
-    }
+
 }
+
 
 - (void)doModify
 {
+    NSString *uuid = nil;
+    NSNumber *major = nil;
+    NSNumber *minor = nil;
+    NSNumber *mesuredPower = nil;
+    NSNumber *txPower = nil;
+    NSNumber *advInterval = nil;
+    NSString *newPassword = nil;
+    
     if (![self.uuidField.text isEqualToString:self.beacon.proximityUUID.UUIDString]) {
         if ([self isValidUUID:self.uuidField.text]) {
-            [self.beacon writeBeaconProximityUUID:self.uuidField.text withCompletion:^(NSError *error) {
-                // do something when error is not nil
-                [self removeObjectFromModifyingArray:self.uuidField];
-                _uuidField.text = self.beacon.proximityUUID.UUIDString;
-            }];
+            uuid = self.uuidField.text;
         } else {
-            // uuid value is not valid
+            [self showAlertWithMessage:@"UUID is not valid"];
+            return;
         }
     }
     
     if ([self.majorField.text intValue] != [self.beacon.major intValue]) {
         if (!([_majorField.text intValue] < 0 || [_majorField.text intValue] > 65535)) {
-            [_modifyingArray addObject:_majorField];
-            [self.beacon writeBeaconMajor:[_majorField.text intValue] withCompletion:^(NSError *error) {
-                // do something when error is not nil
-                [self removeObjectFromModifyingArray:_majorField];
-                _majorField.text = [NSString stringWithFormat:@"%@", self.beacon.major];
-            }];
+            major = @([_majorField.text integerValue]);
         } else {
-            // major value is not valid
+            [self showAlertWithMessage:@"Major is 0-65535"];
+            return;
         }
     }
     
     if ([self.minorField.text intValue] != [self.beacon.minor intValue]) {
         if (!([_minorField.text intValue] < 0 || [_minorField.text intValue] > 65535)) {
-            [_modifyingArray addObject:_minorField];
-            [self.beacon writeBeaconMinor:[_minorField.text intValue] withCompletion:^(NSError *error) {
-                // do something when error is not nil
-                [self removeObjectFromModifyingArray:_minorField];
-                _minorField.text = [NSString stringWithFormat:@"%@", self.beacon.minor];
-            }];
+            minor = @([_minorField.text integerValue]);
         } else {
-            // minor value is not valid
+            [self showAlertWithMessage:@"Minor is 0-65535"];
+            return;
         }
     }
     
     if ([self.powerField.text intValue] != [self.beacon.measuredPower intValue]) {
-        if ([_powerField.text intValue] >= -255 && [_powerField.text intValue] <= -1) {
-            [_modifyingArray addObject:_powerField];
-            [self.beacon writeBeaconMeasuredPower:[_powerField.text intValue] withCompletion:^(NSError *error) {
-                // do something when error is not nil
-                [self removeObjectFromModifyingArray:_powerField];
-                _powerField.text = [NSString stringWithFormat:@"%@", self.beacon.measuredPower];
-            }];
+        if ([_powerField.text intValue] != 0 &&
+            ([_powerField.text intValue] >= -255 && [_powerField.text intValue] <= -1)) {
         } else {
-            // measured power value is not valid
+            [self showAlertWithMessage:@"Measured power is from -1 to -255"];
+            return;
         }
     }
     
     if ([self.advIntervalField.text intValue] != [self.beacon.advInterval intValue]) {
-        if (!([_advIntervalField.text intValue] < 1 || [_advIntervalField.text intValue] > 100)) {
-            [_modifyingArray addObject:_advIntervalField];
-            [self.beacon writeBeaconAdvInterval:[_advIntervalField.text intValue] withCompletion:^(NSError *error) {
-                // do something when error is not nil
-                [self removeObjectFromModifyingArray:_advIntervalField];
-                _advIntervalField.text = [NSString stringWithFormat:@"%@", self.beacon.advInterval];
-            }];
+        if ([_advIntervalField.text intValue] >= 1 && [_advIntervalField.text intValue] <= 100) {
+            advInterval = @([[_advIntervalField text] integerValue]);
         } else {
-            // adv interval value is not valid
+            [self showAlertWithMessage:@"Advertise interval should be smaller than 100 and bigger than 1"];
+            return;
         }
     }
     
     if (_passcodeField.text.length == 12) {
-        [_modifyingArray addObject:_passcodeField];
-        [self.beacon writeBeaconPasscode:_passcodeField.text withCompletion:^(NSError *error) {
-            // do something when error is not nil
-            [self removeObjectFromModifyingArray:_passcodeField];
-        }];
-    } else {
-        // passcode value is not valid
+        newPassword = _passcodeField.text;
+    } else if (_passcodeField.text.length != 0) {
+        [self showAlertWithMessage:@"Password lenght should be 12"];
+        return;
     }
     
     if (_deviceTxPower != self.beacon.txPower) {
-        [_modifyingArray addObject:_txPowerLabel];
-        [self.beacon writeBeaconTxPower:_deviceTxPower withCompletion:^(NSError *error) {
-            // do something when error is not nil
-            [self removeObjectFromModifyingArray:_txPowerLabel];
-            _txPowerLabel.text = [NSString stringWithFormat:@"%@", _txPowerIndex[self.beacon.txPower]];
-            _deviceTxPower = self.beacon.txPower;
-        }];
+        txPower = @(_deviceTxPower );
     }
+    
+    [self.beacon writeBeaconInfoByPassword:@"AprilBrother"
+                                      uuid:uuid
+                                     major:major
+                                     minor:minor
+                                   txPower:txPower
+                               advInterval:advInterval
+                             measuredPower:mesuredPower
+                               newpassword:newPassword
+                               autoRestart:YES
+                            withCompletion:^(NSError *error) {
+                                NSLog(@"error = %@", error);
+                                if (!error) {
+                                    NSLog(@"pdate successful and restart device");
+                                    [self.navigationController popViewControllerAnimated:YES];
+                                }
+                            }];
+    
 }
 
 - (void)showAlertWithMessage:(NSString *)message {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
                                                     message:message
-                                                   delegate:self
+                                                   delegate:nil
                                           cancelButtonTitle:@"Ok"
                                           otherButtonTitles:nil];
     [alert show];

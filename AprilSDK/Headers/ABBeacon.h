@@ -297,9 +297,6 @@ typedef void(^ABStringCompletionBlock)(NSString* value, NSError* error);
  */
 - (void)readBeaconMinorWithCompletion:(ABUnsignedShortCompletionBlock)completion;
 
-
-
-
 /**
  * Read advertising interval of connected beacon (Previous connection
  * required)
@@ -345,7 +342,7 @@ typedef void(^ABStringCompletionBlock)(NSString* value, NSError* error);
 /// @name Methods for writing beacon configuration
 
 /**
- * check password of connected beacon before write values. 
+ * check password of connected beacon before write values.
  * new method for writeBeaconPassword
  *
  * @param password password of beacon
@@ -453,5 +450,29 @@ typedef void(^ABStringCompletionBlock)(NSString* value, NSError* error);
  */
 - (void)writeBeaconTxPower:(ABTxPower)power
             withCompletion:(ABCompletionBlock)completion;
+/**
+ *  Writes beacon info to connected beacon
+ *
+ *  @param password  auth password, default 'AprilBrother'
+ *  @param uuid         new Proximity UUID value   传nil表示不修改
+ *  @param major                                   传nil表示不修改
+ *  @param minor                                   传nil表示不修改
+ *  @param txPower      @(ABTxPower)               传nil表示不修改
+ *  @param interval                                传nil表示不修改
+ *  @param power                                   传nil表示不修改
+ *  @param newpassword                             传nil表示不修改
+ *  @param autoReset    自动重启    Default YES
+ *  @param completion   callback
+ */
+- (void)writeBeaconInfoByPassword:(NSString *)password
+                             uuid:(NSString *)uuidString
+                            major:(NSNumber *)major
+                            minor:(NSNumber *)minor
+                          txPower:(NSNumber *)txPower
+                      advInterval:(NSNumber *)advInterval
+                    measuredPower:(NSNumber *)measuredPower
+                      newpassword:(NSString *)newpassword
+                      autoRestart:(BOOL)autoRestart
+                   withCompletion:(ABCompletionBlock)completion;
 
 @end

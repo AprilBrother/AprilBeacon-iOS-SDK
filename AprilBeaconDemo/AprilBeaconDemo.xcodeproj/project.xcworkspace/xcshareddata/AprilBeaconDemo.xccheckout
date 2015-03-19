@@ -11,17 +11,17 @@
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>789059A45EC79475044DD26E897CB209CC1DE51C</key>
-		<string>https://github.com/AprilBrother/AprilBeacon-iOS-SDK.git</string>
+		<string>github.com:AprilBrother/AprilBeacon-iOS-SDK.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>AprilBeaconDemo/AprilBeaconDemo.xcodeproj/project.xcworkspace</string>
+	<string>AprilBeaconDemo/AprilBeaconDemo.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>789059A45EC79475044DD26E897CB209CC1DE51C</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/AprilBrother/AprilBeacon-iOS-SDK.git</string>
+	<string>github.com:AprilBrother/AprilBeacon-iOS-SDK.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>

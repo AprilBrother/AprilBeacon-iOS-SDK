@@ -8,7 +8,7 @@
 
 #import "ABBeacon.h"
 
-/*
+/**
  *  ABAcceleration
  *
  *  Discussion:

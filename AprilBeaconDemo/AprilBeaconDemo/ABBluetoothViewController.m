@@ -77,7 +77,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"beaconCell"];
     
     cell.textLabel.text = peripheral.name;
-    cell.detailTextLabel.text = [peripheral.identifier UUIDString];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"RSSI:%ld", (long)beacon.rssi];
     
     return cell;
 }
