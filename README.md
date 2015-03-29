@@ -28,6 +28,10 @@ Then run the following command in the same directory as your Podfile:
 
 If your app supports iOS 8, you should add NSLocationAlwaysUsageDescription key with message to be displayed in the prompt to Info.plist.
 
+### Project Setting
+
+Change the value of Build Active Architecture Only to "NO" of your project in Building Settings.
+
 
 ## Changelog
 
