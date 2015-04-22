@@ -47,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		48A91E451AE78822007A1B43 /* ABError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABError.h; sourceTree = "<group>"; };
 		E254A8CE19E7B4DE007BBE3C /* ABBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABBeacon.h; sourceTree = "<group>"; };
 		E254A8CF19E7B4DE007BBE3C /* ABBeaconManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABBeaconManager.h; sourceTree = "<group>"; };
 		E254A8D019E7B4DE007BBE3C /* ABBeaconRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABBeaconRegion.h; sourceTree = "<group>"; };
@@ -137,6 +138,7 @@
 			children = (
 				E254A8CE19E7B4DE007BBE3C /* ABBeacon.h */,
 				E254A8CF19E7B4DE007BBE3C /* ABBeaconManager.h */,
+				48A91E451AE78822007A1B43 /* ABError.h */,
 				E254A8D019E7B4DE007BBE3C /* ABBeaconRegion.h */,
 				E254A8D119E7B4DE007BBE3C /* ABSensor.h */,
 				E254A8D219E7B4DE007BBE3C /* AprilBeaconSDK.h */,

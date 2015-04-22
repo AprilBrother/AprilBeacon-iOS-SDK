@@ -13,7 +13,7 @@
 @import CoreLocation;
 
 @class ABBeaconManager;
-
+@class ABBeacon;
 /**
  
  The ABBeaconManagerDelegate protocol defines the delegate methods to respond for related events.
@@ -115,7 +115,7 @@ monitoringDidFailForRegion:(ABBeaconRegion *)region
  * @return void
  */
 - (void)beaconManagerDidStartAdvertising:(ABBeaconManager *)manager
-                                  error:(NSError *)error;
+                                   error:(NSError *)error;
 
 /**
  * Delegate method invoked to handle discovered
@@ -129,6 +129,19 @@ monitoringDidFailForRegion:(ABBeaconRegion *)region
  */
 - (void)beaconManager:(ABBeaconManager *)manager
    didDiscoverBeacons:(NSArray *)beacons;
+
+/**
+ * Delegate method invoked to handle discovered
+ * ABBeacon objects using CoreBluetooth framework
+ * in particular region.
+ *
+ * @param manager April beacon manager
+ * @param beacon
+ *
+ * @return void
+ */
+- (void)beaconManager:(ABBeaconManager *)manager
+    didDiscoverBeacon:(ABBeacon *)beacon;
 
 @end
 
@@ -145,9 +158,7 @@ monitoringDidFailForRegion:(ABBeaconRegion *)region
  
  */
 
-@interface ABBeaconManager : NSObject <CLLocationManagerDelegate,
-CBPeripheralManagerDelegate,
-CBCentralManagerDelegate>
+@interface ABBeaconManager : NSObject 
 
 @property (nonatomic, weak) id <ABBeaconManagerDelegate> delegate;
 
@@ -156,6 +167,23 @@ CBCentralManagerDelegate>
  */
 @property (nonatomic) BOOL avoidUnknownStateBeacons;
 
+/*
+ *  monitoredRegions
+ *
+ *  Discussion:
+ *       Retrieve a set of objects for the regions that are currently being monitored.  If any Beacon manager
+ *       has been instructed to monitor a region, during this or previous launches of your application, it will
+ *       be present in this set.
+ */
+- (NSSet *)monitoredRegions;
+
+/*
+ *  rangedRegions
+ *
+ *  Discussion:
+ *       Retrieve a set of objects representing the regions for which this Beacon manager is actively providing ranging.
+ */
+- (NSSet *)rangedRegions;
 
 /// @name CoreLocation based iBeacon monitoring and ranging methods
 
@@ -265,6 +293,11 @@ CBCentralManagerDelegate>
  * @return void
  */
 - (void)stopAprilBeaconDiscovery;
+
+/**
+ *  Clear beacons Data and Stops CoreBluetooth based beacon discovery process.
+ */
+- (void)stopAndClearDataAprilBeaconDiscovery;
 
 /// @name Scan settings through bluetooth
 

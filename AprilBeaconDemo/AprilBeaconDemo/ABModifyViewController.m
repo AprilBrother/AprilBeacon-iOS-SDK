@@ -41,7 +41,7 @@ typedef enum {
     [super viewDidLoad];
     _txPowerIndex = @[@"0dBm", @"4dBm", @"-6dBm", @"-23dBm"];
     self.beacon.delegate = self;
-    [self.beacon connectToBeacon];
+    [self.beacon connectToBeacon:ABConnectedReadStatedAllInfo];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
