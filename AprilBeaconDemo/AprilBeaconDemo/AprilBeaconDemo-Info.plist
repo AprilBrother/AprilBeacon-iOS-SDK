@@ -26,6 +26,8 @@
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Use location to detect iBeacons</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Use location to detect iBeacons</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
