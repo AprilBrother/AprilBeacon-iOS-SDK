@@ -11,7 +11,7 @@
 
 @interface ABBluetoothViewController ()
 
-@property (nonatomic, strong) ABBeaconManager *beaconManager;
+@property (nonatomic, strong) ABBluetoothManager *bluetoothManager;
 @property (nonatomic, strong) NSMutableArray *tableData;
 
 @end
@@ -22,18 +22,18 @@
 {
     [super viewDidLoad];
     
-    self.beaconManager = [[ABBeaconManager alloc] init];
-    self.beaconManager.delegate = self;
+    self.bluetoothManager = [[ABBluetoothManager alloc] init];
+    self.bluetoothManager.delegate = self;
     
     _tableData = [NSMutableArray array];
+    
     
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self
                             action:@selector(startRangeBeacons)
                   forControlEvents:UIControlEventValueChanged];
     
-    [self.beaconManager addCustomBeaconNameFilter:@"AprilBeacon"];
-//    [self.beaconManager removeCustomBeaconNameFilter:@"AprilBeacon"];
+    [self.bluetoothManager addCustomBeaconNameFilter:@"AprilBeacon"];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -88,8 +88,8 @@
 }
 
 
-#pragma mark - ABBeaconManagerDelegate
-- (void)beaconManager:(ABBeaconManager *)manager didDiscoverBeacons:(NSArray *)beacons{
+#pragma mark - ABBluetoothManagerDelegate
+- (void)beaconManager:(ABBluetoothManager *)manager didDiscoverBeacons:(NSArray *)beacons{
     [self.refreshControl endRefreshing];
     [_tableData removeAllObjects];
     [_tableData addObjectsFromArray:beacons];
@@ -101,12 +101,12 @@
 - (void)startRangeBeacons
 {
     [self stopRangeBeacons];
-     [_beaconManager startAprilBeaconsDiscovery];
+     [self.bluetoothManager startAprilBeaconsDiscovery];
 }
 
 - (void)stopRangeBeacons
 {
-    [_beaconManager stopAprilBeaconDiscovery];
+    [self.bluetoothManager stopAprilBeaconDiscovery];
 }
 
 

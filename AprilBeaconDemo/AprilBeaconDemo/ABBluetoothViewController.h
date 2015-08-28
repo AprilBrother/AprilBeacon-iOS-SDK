@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "AprilBeaconSDK.h"
 
-@interface ABBluetoothViewController : UITableViewController<ABBeaconManagerDelegate>
+@interface ABBluetoothViewController : UITableViewController<ABBluetoothManagerDelegate>
 
 @end

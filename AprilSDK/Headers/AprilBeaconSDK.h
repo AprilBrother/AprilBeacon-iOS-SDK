@@ -7,6 +7,7 @@
 //
 
 #import "ABBeaconManager.h"
+#import "ABBluetoothManager.h"
 #import "ABBeaconRegion.h"
 #import "ABBeacon.h"
 #import "ABSensor.h"

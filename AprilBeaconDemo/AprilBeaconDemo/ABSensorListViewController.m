@@ -10,9 +10,9 @@
 #import <AprilBeaconSDK.h>
 #import "ABSensorViewController.h"
 
-@interface ABSensorListViewController () <ABBeaconManagerDelegate>
+@interface ABSensorListViewController () <ABBluetoothManagerDelegate>
 
-@property (nonatomic, strong) ABBeaconManager *beaconManager;
+@property (nonatomic, strong) ABBluetoothManager *bluetoothManager;
 @property (nonatomic, strong) NSMutableArray *tableData;
 
 @end
@@ -23,8 +23,8 @@
 {
     [super viewDidLoad];
     
-    self.beaconManager = [[ABBeaconManager alloc] init];
-    self.beaconManager.delegate = self;
+    self.bluetoothManager = [[ABBluetoothManager alloc] init];
+    self.bluetoothManager.delegate = self;
     
     _tableData = [NSMutableArray array];
     
@@ -86,8 +86,8 @@
 }
 
 
-#pragma mark - ABBeaconManagerDelegate
-- (void)beaconManager:(ABBeaconManager *)manager didDiscoverBeacons:(NSArray *)beacons {
+#pragma mark - ABbluetoothManagerDelegate
+- (void)beaconManager:(ABBluetoothManager *)manager didDiscoverBeacons:(NSArray *)beacons {
     [self.refreshControl endRefreshing];
     [_tableData removeAllObjects];
     [beacons enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -103,11 +103,11 @@
 - (void)startRangeBeacons
 {
     [self stopRangeBeacons];
-    [_beaconManager startAprilBeaconsDiscovery];
+    [self.bluetoothManager startAprilBeaconsDiscovery];
 }
 
 - (void)stopRangeBeacons
 {
-    [_beaconManager stopAprilBeaconDiscovery];
+    [self.bluetoothManager stopAprilBeaconDiscovery];
 }
 @end

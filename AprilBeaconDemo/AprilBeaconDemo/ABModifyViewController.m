@@ -41,7 +41,7 @@ typedef enum {
     [super viewDidLoad];
     _txPowerIndex = @[@"0dBm", @"4dBm", @"-6dBm", @"-23dBm"];
     self.beacon.delegate = self;
-    [self.beacon connectToBeacon:ABConnectedReadStatedAllInfo];
+    [self.beacon connectToBeacon];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -169,7 +169,6 @@ typedef enum {
                                advInterval:advInterval
                              measuredPower:mesuredPower
                                newpassword:newPassword
-                               autoRestart:YES
                             withCompletion:^(NSError *error) {
                                 NSLog(@"error = %@", error);
                                 if (!error) {

@@ -172,7 +172,7 @@ const GLubyte Indices[] = {
 
 - (void)connectToPeripheral
 {
-    [self.sensor connectToBeacon:ABConnectedReadStatedAllInfo];
+    [self.sensor connectToBeacon];
     [self showProgress:@"Connecting Device"];
 }
 
