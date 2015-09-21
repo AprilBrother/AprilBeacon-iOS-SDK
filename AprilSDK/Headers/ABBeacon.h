@@ -11,6 +11,12 @@
 @import CoreBluetooth;
 @import CoreLocation;
 
+typedef NS_ENUM(NSInteger, ABConnectedReadState) {
+    ABConnectedReadStatedAllInfo = 1 << 0,         //Read All Info
+    ABConnectedReadStatedbeaconService =  1 << 1,  //Read Beacon Service Info
+    ABConnectedReadStatedInformationUUID = 1 << 2, //Read system version info
+    ABConnectedReadStatedBatteryUUID = 1 << 3      //Read Battery
+};
 
 /// April Beacon power value definition
 typedef NS_ENUM(NSInteger, ABTxPower)  {
@@ -245,7 +251,7 @@ typedef void(^ABStringCompletionBlock)(NSString* value, NSError* error);
  *
  * @return void
  */
-- (void)connectToBeacon;
+- (void)connectToBeacon:(ABConnectedReadState)state;
 
 /**
  * Disconnect device with particular beacon
@@ -452,17 +458,22 @@ typedef void(^ABStringCompletionBlock)(NSString* value, NSError* error);
             withCompletion:(ABCompletionBlock)completion;
 /**
  *  Writes beacon info to connected beacon
+ *  If you set the password to nil, it will use the default password
+ *  If you set value to nil, it won't modify the value
+ *
  *
  *  @param password  auth password, default 'AprilBrother'
- *  @param uuid         new Proximity UUID value   传nil表示不修改
- *  @param major                                   传nil表示不修改
- *  @param minor                                   传nil表示不修改
- *  @param txPower      @(ABTxPower)               传nil表示不修改
- *  @param interval                                传nil表示不修改
- *  @param power                                   传nil表示不修改
- *  @param newpassword                             传nil表示不修改
- *  @param autoReset    自动重启    Default YES
+ *  @param uuidString new Proximity UUID value
+ *  @param major new major of iBeacon
+ *  @param minor new minro of iBeacon
+ *  @param txPower    @(ABTxPower) tx power
+ *  @param advInterval advertise interval
+ *  @param measuredPower measured power of iBeacon
+ *  @param newpassword new password
+ *  @param autoRestart   Default YES
  *  @param completion   callback
+ *
+ *  @return void
  */
 - (void)writeBeaconInfoByPassword:(NSString *)password
                              uuid:(NSString *)uuidString
