@@ -16,7 +16,7 @@
  
  You can monitor beacon regions in two ways. To receive notifications when a device enters or exits the vicinity of a beacon, use the startMonitoringForRegion: method of your location manager object. While a beacon is in range, you can also call the startRangingBeaconsInRegion: method to begin receiving notifications when the relative distance to the beacon changes.
  
- ABBeaconRegion extends basic CLBeaconRegion Core Location object, allowing to directly initialize region that is supported by Estimote Cloud platform.
+ ABBeaconRegion extends basic CLBeaconRegion Core Location object.
  
  */
 

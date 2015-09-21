@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E578B631BB007F900AFD623 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E578B621BB007F900AFD623 /* LaunchScreen.xib */; settings = {ASSET_TAGS = (); }; };
 		3EFBDB691B8F19F800436CB3 /* libAprilBeaconSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFBDB681B8F19F800436CB3 /* libAprilBeaconSDK.a */; };
 		E26EB6AC197F5323007619B1 /* ABModifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E26EB6AB197F5323007619B1 /* ABModifyViewController.m */; };
 		E26EB6B4197F5374007619B1 /* JVFloatLabeledTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = E26EB6AF197F5374007619B1 /* JVFloatLabeledTextField.m */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3E578B621BB007F900AFD623 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		3EFBDB601B8F19F700436CB3 /* ABBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABBeacon.h; sourceTree = "<group>"; };
 		3EFBDB611B8F19F700436CB3 /* ABBeaconManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABBeaconManager.h; sourceTree = "<group>"; };
 		3EFBDB621B8F19F700436CB3 /* ABBeaconRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABBeaconRegion.h; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				E2ED5E661919E1F000C0BF2C /* Main.storyboard */,
 				E2ED5E691919E1F000C0BF2C /* ABViewController.h */,
 				E2ED5E6A1919E1F000C0BF2C /* ABViewController.m */,
+				3E578B621BB007F900AFD623 /* LaunchScreen.xib */,
 				E2ED5E6C1919E1F000C0BF2C /* Images.xcassets */,
 				E2ED5E5B1919E1F000C0BF2C /* Supporting Files */,
 			);
@@ -312,7 +315,7 @@
 				ORGANIZATIONNAME = AprilBrother;
 				TargetAttributes = {
 					E2ED5E501919E1F000C0BF2C = {
-						DevelopmentTeam = B394B8PA37;
+						DevelopmentTeam = S8VB6E7QGB;
 					};
 					E2ED5E711919E1F000C0BF2C = {
 						TestTargetID = E2ED5E501919E1F000C0BF2C;
@@ -343,6 +346,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E578B631BB007F900AFD623 /* LaunchScreen.xib in Resources */,
 				E2FB5647199DAC2E0038CAA8 /* tile_floor.png in Resources */,
 				E2ED5E6D1919E1F000C0BF2C /* Images.xcassets in Resources */,
 				E2ED5E5F1919E1F000C0BF2C /* InfoPlist.strings in Resources */,
@@ -507,6 +511,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AprilBeaconDemo/AprilBeaconDemo-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -535,6 +540,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AprilBeaconDemo/AprilBeaconDemo-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
