@@ -41,10 +41,7 @@
 - (void)startMonitoringForRegion
 {
     if (!_region) {
-        self.region = [[ABBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:@"E2C56DB5-DFFB-48D2-B060-D0F5A71096E0"]
-                                                              major:10086
-                                                              minor:10010
-                                                         identifier:@"test"];
+        self.region = [[ABBeaconRegion alloc] initWithProximityUUID:_beacon.proximityUUID identifier:_beacon.proximityUUID.UUIDString];
     } else {
         [_beaconManager stopMonitoringForRegion:self.region];
     }

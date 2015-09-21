@@ -159,6 +159,80 @@ monitoringDidFailForRegion:(ABBeaconRegion *)region
  */
 - (NSSet *)rangedRegions;
 
+
+/*
+ *  authorizationStatus
+ *
+ *  Discussion:
+ *      Returns the current authorization status of the calling application.
+ */
++ (CLAuthorizationStatus)authorizationStatus;
+
+/*
+ *  requestWhenInUseAuthorization
+ *
+ *  Discussion:
+ *      When +authorizationStatus == kCLAuthorizationStatusNotDetermined,
+ *      calling this method will trigger a prompt to request "when-in-use"
+ *      authorization from the user.  If possible, perform this call in response
+ *      to direct user request for a location-based service so that the reason
+ *      for the prompt will be clear.  Any authorization change as a result of
+ *      the prompt will be reflected via the usual delegate callback:
+ *      -locationManager:didChangeAuthorizationStatus:.
+ *
+ *      If received, "when-in-use" authorization grants access to the user's
+ *      location via -startUpdatingLocation/-startRangingBeaconsInRegion while
+ *      in the foreground.  If updates have been started when going to the
+ *      background, then a status bar banner will be displayed to maintain
+ *      visibility to the user, and updates will continue until stopped
+ *      normally, or the app is killed by the user.
+ *
+ *      "When-in-use" authorization does NOT enable monitoring API on regions,
+ *      significant location changes, or visits, and -startUpdatingLocation will
+ *      not succeed if invoked from the background.
+ *
+ *      When +authorizationStatus != kCLAuthorizationStatusNotDetermined, (ie
+ *      generally after the first call) this method will do nothing.
+ *
+ *      If the NSLocationWhenInUseUsageDescription key is not specified in your
+ *      Info.plist, this method will do nothing, as your app will be assumed not
+ *      to support WhenInUse authorization.
+ */
+- (void)requestWhenInUseAuthorization __OSX_AVAILABLE_STARTING(__MAC_NA, __IPHONE_8_0);
+
+/*
+ *  requestAlwaysAuthorization
+ *
+ *  Discussion:
+ *      When +authorizationStatus == kCLAuthorizationStatusNotDetermined,
+ *      calling this method will trigger a prompt to request "always"
+ *      authorization from the user.  If possible, perform this call in response
+ *      to direct user request for a location-based service so that the reason
+ *      for the prompt will be clear.  Any authorization change as a result of
+ *      the prompt will be reflected via the usual delegate callback:
+ *      -locationManager:didChangeAuthorizationStatus:.
+ *
+ *      If received, "always" authorization grants access to the user's
+ *      location via any CLLocationManager API, and grants access to
+ *      launch-capable monitoring API such as geofencing/region monitoring,
+ *      significante location visits, etc.  Even if killed by the user, launch
+ *      events triggered by monitored regions or visit patterns will cause a
+ *      relaunch.
+ *
+ *      "Always" authorization presents a significant risk to user privacy, and
+ *      as such requesting it is discouraged unless background launch behavior
+ *      is genuinely required.  Do not call +requestAlwaysAuthorization unless
+ *      you think users will thank you for doing so.
+ *
+ *      When +authorizationStatus != kCLAuthorizationStatusNotDetermined, (ie
+ *      generally after the first call) this method will do nothing.
+ *
+ *      If the NSLocationAlwaysUsageDescription key is not specified in your
+ *      Info.plist, this method will do nothing, as your app will be assumed not
+ *      to support Always authorization.
+ */
+- (void)requestAlwaysAuthorization __OSX_AVAILABLE_STARTING(__MAC_NA, __IPHONE_8_0);
+
 /// @name CoreLocation based iBeacon monitoring and ranging methods
 
 /**
