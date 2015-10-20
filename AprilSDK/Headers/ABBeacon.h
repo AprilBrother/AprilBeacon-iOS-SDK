@@ -7,74 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ABDefinitions.h"
 
 @import CoreBluetooth;
 @import CoreLocation;
-
-typedef NS_ENUM(NSInteger, ABConnectedReadState) {
-    ABConnectedReadStatedAllInfo = 1 << 0,         //Read All Info
-    ABConnectedReadStatedbeaconService =  1 << 1,  //Read Beacon Service Info
-    ABConnectedReadStatedInformationUUID = 1 << 2, //Read system version info
-    ABConnectedReadStatedBatteryUUID = 1 << 3      //Read Battery
-};
-
-/// April Beacon power value definition
-typedef NS_ENUM(NSInteger, ABTxPower)  {
-    /** Default value for tx power */
-    ABTxPower0DBM = 0,
-    /** The max value for tx power */
-    ABTxPower4DBM = 1,
-    /** Small value for tx power */
-    ABTxPowerMinus6DBM = 2,
-    /** The min value for tx power */
-    ABTxPowerMinus23DBM = 3
-};
-
-/**
- *    callback method.
- *
- *    @param error nil or specific error.
- */
-typedef void(^ABCompletionBlock)(NSError* error);
-
-/**
- *    unsigned short value callback method.
- *
- *    @param value unsigned short return value.
- *    @param error nil or specific error.
- */
-typedef void(^ABUnsignedShortCompletionBlock)(unsigned short value, NSError* error);
-
-/**
- *    power callback method.
- *
- *    @param value power value.
- *    @param error nil or specific error.
- */
-typedef void(^ABPowerCompletionBlock)(ABTxPower value, NSError* error);
-
-/**
- *    bool value callback method.
- *
- *    @param value bool return value.
- *    @param error nil or specific error.
- */
-typedef void(^ABBoolCompletionBlock)(BOOL value, NSError* error);
-
-/**
- *    string value callback method.
- *
- *    @param value string return value.
- *    @param error nil or specific error.
- */
-typedef void(^ABStringCompletionBlock)(NSString* value, NSError* error);
-
 
 @class ABBeacon;
 
 ////////////////////////////////////////////////////////////////////
 // April beacon delegate protocol
-
 
 /**
  
@@ -125,13 +66,6 @@ typedef void(^ABStringCompletionBlock)(NSString* value, NSError* error);
  */
 @property (nonatomic, strong)   NSUUID*                 proximityUUID;
 
-/**
- *  macAddress
- *
- *  Discussion:
- *    Hardware MAC address of the beacon.
- */
-@property (nonatomic, strong)   NSString *              macAddress;
 
 /**
  *  major
@@ -163,14 +97,22 @@ typedef void(^ABStringCompletionBlock)(NSString* value, NSError* error);
  *
  *    The value in this property gives a general sense of the relative distance to the beacon. Use it to quickly identify beacons that are nearer to the user rather than farther away.
  */
-@property (nonatomic, strong)   NSNumber*               distance;
+@property (nonatomic)           CLProximity             proximity;
+
+/**
+ *  macAddress
+ *
+ *  Discussion:
+ *    Hardware MAC address of the beacon.
+ */
+@property (nonatomic, strong)   NSString *              macAddress;
 
 /**
  *  proximity
  *
  *    The value in this property gives a general sense of the relative distance to the beacon. Use it to quickly identify beacons that are nearer to the user rather than farther away.
  */
-@property (nonatomic)           CLProximity             proximity;
+@property (nonatomic, strong)   NSNumber*               distance;
 
 /**
  *  measuredPower
@@ -208,7 +150,7 @@ typedef void(^ABStringCompletionBlock)(NSString* value, NSError* error);
 /**
  *  advInterval
  *
- *    Advertising interval of the beacon. Value change from 50ms to 2000ms. Value available after connection with the beacon
+ *    Advertising interval of the beacon. Value change from 100ms to 2000ms, The unit is 100ms. Value available after connection with the beacon
  */
 @property (nonatomic, strong)   NSNumber*               advInterval;
 
@@ -240,6 +182,30 @@ typedef void(^ABStringCompletionBlock)(NSString* value, NSError* error);
  */
 @property (nonatomic, strong)   NSString*               modelNumber;
 
+/**
+ *  isSupportEddystone
+ *
+ *    is beacon support Google Eddystone protocol. Value available after connection with the beacon
+ */
+@property (nonatomic)   BOOL               isSupportEddystone;
+
+/**
+ *  broadcastType
+ *
+ *    if isSupportEddystone is true, use this to check the broadcast type. Value available after connection with the beacon
+ *    ABBeaconBroadcastiBeacon Default type
+ *    ABBeaconBroadcastEddystoneUid broadcast UUID is proximityUUID
+ *    ABBeaconBroadcastEddystoneURL broadcast URL is eddyStoneURL
+ */
+@property (nonatomic)   ABBroadcastType               broadcastType;
+
+/**
+ *  eddyStoneURL
+ *
+ *    if broadcast type is ABBeaconBroadcastEddystoneURL, use this to get broadcast URL. Value available after connection with the beacon
+ */
+@property (nonatomic, strong)   NSString*               eddyStoneURL;
+
 
 /// @name Connection handling methods
 
@@ -251,7 +217,7 @@ typedef void(^ABStringCompletionBlock)(NSString* value, NSError* error);
  *
  * @return void
  */
-- (void)connectToBeacon:(ABConnectedReadState)state;
+- (void)connectToBeacon;
 
 /**
  * Disconnect device with particular beacon
@@ -260,202 +226,6 @@ typedef void(^ABStringCompletionBlock)(NSString* value, NSError* error);
  */
 - (void)disconnectBeacon;
 
-
-/// @name Methods for reading beacon configuration
-
-/**
- * Read Proximity UUID of connected beacon (Previous connection
- * required)
- *
- * @param completion block with Proximity UUID value as param
- *
- * @return void
- */
-- (void)readBeaconProximityUUIDWithCompletion:(ABStringCompletionBlock)completion;
-
-/**
- * Read macAddress of connected beacon (Previous connection
- * required)
- *
- * @param completion block with macAddress value as param
- *
- * @return void
- */
-- (void)readBeaconMacAddressWithCompletion:(ABStringCompletionBlock)completion;
-
-/**
- * Read major of connected beacon (Previous connection
- * required)
- *
- * @param completion block with major value as param
- *
- * @return void
- */
-- (void)readBeaconMajorWithCompletion:(ABUnsignedShortCompletionBlock)completion;
-
-/**
- * Read minor of connected beacon (Previous connection
- * required)
- *
- * @param completion block with minor value as param
- *
- * @return void
- */
-- (void)readBeaconMinorWithCompletion:(ABUnsignedShortCompletionBlock)completion;
-
-/**
- * Read advertising interval of connected beacon (Previous connection
- * required)
- *
- * @param completion block with advertising interval value as param
- *
- * @return void
- */
-- (void)readBeaconAdvIntervalWithCompletion:(ABUnsignedShortCompletionBlock)completion;
-
-
-/**
- * Read power of connected beacon (Previous connection
- * required)
- *
- * @param completion block with power value as param
- *
- * @return float value of beacon power
- */
-- (void)readBeaconMeasuredPowerWithCompletion:(ABPowerCompletionBlock)completion;
-
-/**
- * Read Tx power of connected beacon (Previous connection
- * required)
- *
- * @param completion block with power value as param
- *
- * @return ABTxPower of beacon Tx power
- */
-- (void)readBeaconTxPowerWithCompletion:(ABPowerCompletionBlock)completion;
-
-/**
- * Read battery level of connected beacon (Previous connection
- * required)
- *
- * @param completion block with battery level value as param
- *
- * @return void
- */
-- (void)readBeaconBatteryWithCompletion:(ABUnsignedShortCompletionBlock)completion;
-
-
-/// @name Methods for writing beacon configuration
-
-/**
- * check password of connected beacon before write values.
- * new method for writeBeaconPassword
- *
- * @param password password of beacon
- * @param completion block handling operation completion
- *
- * @return void
- */
-- (void)authBeaconWithPassword:(NSString *)password
-                withCompletion:(ABCompletionBlock)completion;
-
-/**
- * Reset connected beacon.
- *
- * @param completion block handling operation completion
- *
- * @return void
- */
-- (void)resetBeaconWithCompletion:(ABCompletionBlock)completion;
-
-/**
- * Writes Proximity UUID param to bluetooth connected beacon. Please  remember that If you change the UUID to your very own value anyone can read it, copy it and spoof your beacons. So if you are working on a mission critical application where security is an issue - be sure to implement it on your end. We are also working on a secure mode for our beacons and it will be included in one of the next firmware updates.
- *
- * @param uuid new Proximity UUID value
- * @param completion block handling operation completion
- *
- * @return void
- */
-- (void)writeBeaconProximityUUID:(NSString *)uuid
-                  withCompletion:(ABCompletionBlock)completion;
-
-/**
- * Writes major param to bluetooth connected beacon.
- *
- * @param major major beacon value
- * @param completion block handling operation completion
- *
- * @return void
- */
-- (void)writeBeaconMajor:(unsigned short)major
-          withCompletion:(ABCompletionBlock)completion;
-
-/**
- * Writes minor param to bluetooth connected beacon.
- *
- * @param minor minor beacon value
- * @param completion block handling operation completion
- *
- * @return void
- */
-- (void)writeBeaconMinor:(unsigned short)minor
-          withCompletion:(ABCompletionBlock)completion;
-
-/**
- * Writes advertising interval (in milisec) of connected beacon.
- *
- * @param interval interval of beacon (50 - 2000 ms)
- * @param completion block handling operation completion
- *
- * @return void
- */
-- (void)writeBeaconAdvInterval:(unsigned short)interval
-                withCompletion:(ABCompletionBlock)completion;
-
-/**
- * Writes command to connected beacon.
- *
- * @param command command of beacon
- * @param completion block handling operation completion
- *
- * @return void
- */
-- (void)writeBeaconCommand:(NSString *)command
-            withCompletion:(ABCompletionBlock)completion;
-
-/**
- * Writes passcode to connected beacon.
- *
- * @param passcode passcode of beacon
- * @param completion block handling operation completion
- *
- * @return void
- */
-- (void)writeBeaconPasscode:(NSString *)passcode
-             withCompletion:(ABCompletionBlock)completion;
-
-
-/**
- * Writes power to connected beacon.
- *
- * @param power new power of beacon
- * @param completion block handling operation completion
- *
- * @return void
- */
-- (void)writeBeaconMeasuredPower:(unsigned short)power
-                  withCompletion:(ABCompletionBlock)completion;
-
-/**
- * Writes power of bluetooth connected beacon.
- *
- * @param power advertising beacon power (can take value from ABBeaconPowerLevel1 / waak to ABBeaconPowerLevel8 / strong)
- * @param completion block handling operation completion
- *
- * @return void
- */
-- (void)writeBeaconTxPower:(ABTxPower)power
-            withCompletion:(ABCompletionBlock)completion;
 /**
  *  Writes beacon info to connected beacon
  *  If you set the password to nil, it will use the default password
@@ -483,7 +253,71 @@ typedef void(^ABStringCompletionBlock)(NSString* value, NSError* error);
                       advInterval:(NSNumber *)advInterval
                     measuredPower:(NSNumber *)measuredPower
                       newpassword:(NSString *)newpassword
-                      autoRestart:(BOOL)autoRestart
                    withCompletion:(ABCompletionBlock)completion;
+
+/**
+ *  Writes beacon info to connected beacon
+ *  If you set the password to nil, it will use the default password
+ *  If you set value to nil, it won't modify the value
+ *
+ *
+ *  @param password  auth password, default 'AprilBrother'
+ *  @param uuidString new Proximity UUID value
+ *  @param major new major of iBeacon
+ *  @param minor new minro of iBeacon
+ *  @param txPower    @(ABTxPower) tx power
+ *  @param advInterval advertise interval
+ *  @param measuredPower measured power of iBeacon
+ *  @param newpassword new password
+ *  @param autoRestart   Default YES
+ *  @param completion   callback
+ *  @param type broadcast type
+ *
+ *  @return void
+ */
+- (void)writeBeaconInfoByPassword:(NSString *)password
+                             uuid:(NSString *)uuidString
+                            major:(NSNumber *)major
+                            minor:(NSNumber *)minor
+                          txPower:(NSNumber *)txPower
+                      advInterval:(NSNumber *)advInterval
+                    measuredPower:(NSNumber *)measuredPower
+                      newpassword:(NSString *)newpassword
+                    broadcastType:(ABBroadcastType)type
+                   withCompletion:(ABCompletionBlock)completion;
+
+/**
+ *  Writes beacon info to connected beacon
+ *  If you set the password to nil, it will use the default password
+ *  If you set value to nil, it won't modify the value
+ *
+ *
+ *  @param url broadcast url
+ *  @param type broadcast type
+ *  @param password auth password, default 'AprilBrother'
+ *
+ *  @return void
+ */
+- (void)writeEddyStoneURLAndReset:(NSString *)url
+                    broadcastType:(ABBroadcastType)type
+                         password:(NSString *)password
+                       completion:(ABCompletionBlock)completion;
+
+/**
+ *  Writes beacon info to connected beacon
+ *  If you set the password to nil, it will use the default password
+ *  If you set value to nil, it won't modify the value
+ *
+ *
+ *  @param uuidString broadcast UUID
+ *  @param type broadcast type
+ *  @param password auth password, default 'AprilBrother'
+ *
+ *  @return void
+ */
+- (void)writeEddyStoneUidAndReset:(NSString *)uuidString
+                    broadcastType:(ABBroadcastType)type
+                         password:(NSString *)password
+                       completion:(ABCompletionBlock)completion;
 
 @end

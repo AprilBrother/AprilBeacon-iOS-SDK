@@ -10,9 +10,9 @@
 #import <AprilBeaconSDK.h>
 #import "ABSensorViewController.h"
 
-@interface ABSensorListViewController () <ABBeaconManagerDelegate>
+@interface ABSensorListViewController () <ABBluetoothManagerDelegate>
 
-@property (nonatomic, strong) ABBeaconManager *beaconManager;
+@property (nonatomic, strong) ABBluetoothManager *beaconManager;
 @property (nonatomic, strong) NSMutableArray *tableData;
 
 @end
@@ -23,7 +23,7 @@
 {
     [super viewDidLoad];
     
-    self.beaconManager = [[ABBeaconManager alloc] init];
+    self.beaconManager = [[ABBluetoothManager alloc] init];
     self.beaconManager.delegate = self;
     
     _tableData = [NSMutableArray array];
