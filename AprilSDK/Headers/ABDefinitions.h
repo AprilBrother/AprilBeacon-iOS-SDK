@@ -18,16 +18,11 @@ typedef NS_ENUM(NSInteger, ABTxPower)  {
     ABTxPowerMinus6DBM = 2,
     /** The value for tx power */
     ABTxPowerMinus23DBM = 3,
-    /** The min value for tx power */
+    /** Tx power definition, only used in EEK beacon */
     ABTxPowerMinus20DBM = 4
 };
 
-typedef NS_ENUM(NSInteger, ABBeaconType) {
-    ABBeaconAll,
-    ABBeaconSensor,
-    ABBeaconLight
-};
-
+/// April beacon broadcast type definition
 typedef NS_ENUM(NSInteger, ABBroadcastType) {
     /** Default broadcast type */
     ABBeaconBroadcastiBeacon,

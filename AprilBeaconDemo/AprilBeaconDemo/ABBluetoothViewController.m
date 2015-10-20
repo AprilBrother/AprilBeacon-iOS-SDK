@@ -133,7 +133,9 @@
 - (void)startRangeBeacons
 {
     [self stopRangeBeacons];
-     [_beaconManager startAprilBeaconsDiscovery];
+    [_beaconManager startAprilBeaconsDiscovery];
+//    [_beaconManager startAprilSensorsDiscovery]; // only find april sensors
+//    [_beaconManager startAprilLightDiscovery]; // only find april lights
 }
 
 - (void)stopRangeBeacons

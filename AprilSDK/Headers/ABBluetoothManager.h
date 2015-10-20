@@ -11,6 +11,11 @@
 
 @class ABBluetoothManager;
 
+/**
+ 
+ The ABBluetoothManagerDelegate protocol defines the delegate methods to respond for related events.
+ */
+
 @protocol ABBluetoothManagerDelegate <NSObject>
 
 @optional
@@ -30,11 +35,12 @@
 
 /**
  * Delegate method invoked to handle discovered
- * ABBeacon objects using CoreBluetooth framework
+ * ABBeacon object using CoreBluetooth framework
  * in particular region.
  *
  * @param manager April beacon manager
- * @param beacon
+ * @param beacon return single beacon once, not all beacons, 
+ * diffent from beaconManager:manager didDiscoverBeacons:
  *
  * @return void
  */
@@ -43,14 +49,19 @@
 
 @end
 
+/**
+ 
+ ABBluetoothManager defines method to discover April beacons
+ 
+ */
+
 @interface ABBluetoothManager : NSObject
 
 @property (nonatomic, weak) id <ABBluetoothManagerDelegate> delegate;
 
 /**
  * Start beacon discovery process based on CoreBluetooth
- * framework. Method is useful for older beacons discovery
- * that are not advertising as iBeacons.
+ * framework. Method is useful for finding all April beacons
  *
  * @return void
  */
@@ -58,13 +69,20 @@
 
 /**
  * Start sensor discovery process based on CoreBluetooth
- * framework. Method is useful for older beacons discovery
- * that are not advertising as iBeacons.
+ * framework. Method is useful for finding april sensors only
  *
  * @return void
  */
 - (void)startAprilSensorsDiscovery;
 
+
+/**
+ * Start light discovery process based on CoreBluetooth
+ * framework. Method is useful for finding april light only
+ *
+ * @return void
+ */
+- (void)startAprilLightDiscovery;
 
 /**
  * Stops CoreBluetooth based beacon discovery process.

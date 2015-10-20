@@ -52,6 +52,12 @@
 
 @end
 
+/**
+ 
+ ABBeacon defines properties of April beacon, you can get parameters of iBeacon from ABBeacon
+ 
+ */
+
 @interface ABBeacon : NSObject<NSCopying>
 
 @property (nonatomic, weak) id <ABBeaconDelegate> delegate;
@@ -240,7 +246,6 @@
  *  @param advInterval advertise interval
  *  @param measuredPower measured power of iBeacon
  *  @param newpassword new password
- *  @param autoRestart   Default YES
  *  @param completion   callback
  *
  *  @return void
@@ -261,7 +266,7 @@
  *  If you set value to nil, it won't modify the value
  *
  *
- *  @param password  auth password, default 'AprilBrother'
+ *  @param password  auth password, default 'AprilBrother', '195660' for EEK beacon
  *  @param uuidString new Proximity UUID value
  *  @param major new major of iBeacon
  *  @param minor new minro of iBeacon
@@ -269,7 +274,6 @@
  *  @param advInterval advertise interval
  *  @param measuredPower measured power of iBeacon
  *  @param newpassword new password
- *  @param autoRestart   Default YES
  *  @param completion   callback
  *  @param type broadcast type
  *
@@ -294,7 +298,8 @@
  *
  *  @param url broadcast url
  *  @param type broadcast type
- *  @param password auth password, default 'AprilBrother'
+ *  @param password auth password, default 'AprilBrother', '195660' for EEK beacon
+ *  @param completion   callback
  *
  *  @return void
  */
@@ -311,7 +316,8 @@
  *
  *  @param uuidString broadcast UUID
  *  @param type broadcast type
- *  @param password auth password, default 'AprilBrother'
+ *  @param password auth password, default 'AprilBrother', '195660' for EEK beacon
+ *  @param completion   callback
  *
  *  @return void
  */

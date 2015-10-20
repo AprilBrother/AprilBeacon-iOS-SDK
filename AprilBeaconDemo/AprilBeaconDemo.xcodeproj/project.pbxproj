@@ -50,6 +50,8 @@
 /* Begin PBXFileReference section */
 		48A91E451AE78822007A1B43 /* ABError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABError.h; sourceTree = "<group>"; };
 		E23E40771BD5DC2B00B17F49 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		E23E40791BD5DF2B00B17F49 /* ABBluetoothManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABBluetoothManager.h; sourceTree = "<group>"; };
+		E23E407A1BD5DF2B00B17F49 /* ABDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABDefinitions.h; sourceTree = "<group>"; };
 		E254A8CE19E7B4DE007BBE3C /* ABBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABBeacon.h; sourceTree = "<group>"; };
 		E254A8CF19E7B4DE007BBE3C /* ABBeaconManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABBeaconManager.h; sourceTree = "<group>"; };
 		E254A8D019E7B4DE007BBE3C /* ABBeaconRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABBeaconRegion.h; sourceTree = "<group>"; };
@@ -138,6 +140,8 @@
 		E254A8CD19E7B4DE007BBE3C /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				E23E40791BD5DF2B00B17F49 /* ABBluetoothManager.h */,
+				E23E407A1BD5DF2B00B17F49 /* ABDefinitions.h */,
 				E254A8CE19E7B4DE007BBE3C /* ABBeacon.h */,
 				E254A8CF19E7B4DE007BBE3C /* ABBeaconManager.h */,
 				48A91E451AE78822007A1B43 /* ABError.h */,
