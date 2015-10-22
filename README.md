@@ -30,7 +30,8 @@ If your app supports iOS 8, you should add NSLocationAlwaysUsageDescription key 
 
 ### Project Setting
 
-Change the value of Build Active Architecture Only to "NO" of your project in Building Settings.
+Change the value of Build Active Architecture Only to "NO" of your project in Building Settings. 
+If your proejct is crash, try to add -all_load to Other Linker Flags in Building Settings.
 
 
 ## Changelog
