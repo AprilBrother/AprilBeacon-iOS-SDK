@@ -9,9 +9,9 @@
 #import "ABBluetoothViewController.h"
 #import "ABModifyViewController.h"
 
-@interface ABBluetoothViewController ()
+@interface ABBluetoothViewController () <ABBluetoothManagerDelegate>
 
-@property (nonatomic, strong) ABBeaconManager *beaconManager;
+@property (nonatomic, strong) ABBluetoothManager *beaconManager;
 @property (nonatomic, strong) NSMutableArray *tableData;
 
 @end
@@ -22,7 +22,7 @@
 {
     [super viewDidLoad];
     
-    self.beaconManager = [[ABBeaconManager alloc] init];
+    self.beaconManager = [[ABBluetoothManager alloc] init];
     self.beaconManager.delegate = self;
     
     _tableData = [NSMutableArray array];
@@ -32,8 +32,7 @@
                             action:@selector(startRangeBeacons)
                   forControlEvents:UIControlEventValueChanged];
     
-    [self.beaconManager addCustomBeaconNameFilter:@"AprilBeacon"];
-//    [self.beaconManager removeCustomBeaconNameFilter:@"AprilBeacon"];
+    [self.beaconManager addCustomBeaconNameFilter:@"aikaka"];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -77,7 +76,35 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"beaconCell"];
     
     cell.textLabel.text = peripheral.name;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"RSSI:%ld", (long)beacon.rssi];
+    NSMutableString *detailString = [[NSMutableString alloc] init];
+    
+    // fot the newest EEK iBeacon, you can get Major, Minor, Mac Address , battery level when scan iBeacons.
+    if (beacon.major) {
+        [detailString appendFormat:@"Major:%@ ",beacon.major];
+    }
+    if (beacon.minor) {
+        [detailString appendFormat:@"Minor:%@ ",beacon.minor];
+    }
+    if (beacon.macAddress) {
+        [detailString appendFormat:@"Mac:%@ ",beacon.macAddress];
+    }
+    if (beacon.batteryLevel) {
+        [detailString appendFormat:@"Battery:%@ ", beacon.batteryLevel];
+    }
+    if (beacon.rssi == 127) {
+        cell.userInteractionEnabled = NO;
+        cell.textLabel.textColor = [UIColor lightGrayColor];
+        
+        [detailString appendFormat:@"rssi : "];
+    } else {
+        cell.userInteractionEnabled = YES;
+        cell.textLabel.textColor = [UIColor blackColor];
+        [detailString appendFormat:@"rssi : %ld", (long)beacon.rssi];
+    }
+    
+    cell.detailTextLabel.text = detailString;
+    cell.detailTextLabel.numberOfLines = 0;
+    
     
     return cell;
 }
@@ -85,6 +112,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self performSegueWithIdentifier:@"ModifySegue" sender:_tableData[indexPath.row]];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60;
 }
 
 
@@ -101,7 +133,9 @@
 - (void)startRangeBeacons
 {
     [self stopRangeBeacons];
-     [_beaconManager startAprilBeaconsDiscovery];
+    [_beaconManager startAprilBeaconsDiscovery];
+//    [_beaconManager startAprilSensorsDiscovery]; // only find april sensors
+//    [_beaconManager startAprilLightDiscovery]; // only find april lights
 }
 
 - (void)stopRangeBeacons

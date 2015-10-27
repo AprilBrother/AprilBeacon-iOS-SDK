@@ -117,32 +117,6 @@ monitoringDidFailForRegion:(ABBeaconRegion *)region
 - (void)beaconManagerDidStartAdvertising:(ABBeaconManager *)manager
                                    error:(NSError *)error;
 
-/**
- * Delegate method invoked to handle discovered
- * ABBeacon objects using CoreBluetooth framework
- * in particular region.
- *
- * @param manager April beacon manager
- * @param beacons all beacons as ABBeacon objects
- *
- * @return void
- */
-- (void)beaconManager:(ABBeaconManager *)manager
-   didDiscoverBeacons:(NSArray *)beacons;
-
-/**
- * Delegate method invoked to handle discovered
- * ABBeacon objects using CoreBluetooth framework
- * in particular region.
- *
- * @param manager April beacon manager
- * @param beacon
- *
- * @return void
- */
-- (void)beaconManager:(ABBeaconManager *)manager
-    didDiscoverBeacon:(ABBeacon *)beacon;
-
 @end
 
 
@@ -263,58 +237,5 @@ monitoringDidFailForRegion:(ABBeaconRegion *)region
  * @return void
  */
 - (void)stopAdvertising;
-
-
-/// @name CoreBluetooth based utility methods
-
-
-/**
- * Start beacon discovery process based on CoreBluetooth
- * framework. Method is useful for older beacons discovery
- * that are not advertising as iBeacons.
- *
- * @return void
- */
-- (void)startAprilBeaconsDiscovery;
-
-/**
- * Start sensor discovery process based on CoreBluetooth
- * framework. Method is useful for older beacons discovery
- * that are not advertising as iBeacons.
- *
- * @return void
- */
-- (void)startAprilSensorsDiscovery;
-
-
-/**
- * Stops CoreBluetooth based beacon discovery process.
- *
- * @return void
- */
-- (void)stopAprilBeaconDiscovery;
-
-/**
- *  Clear beacons Data and Stops CoreBluetooth based beacon discovery process.
- */
-- (void)stopAndClearDataAprilBeaconDiscovery;
-
-/// @name Scan settings through bluetooth
-
-/**
- * Beacons whose name begin with specified name can be found.
- *
- * @param beaconPrefixName name want to discovered
- * @return void
- */
-- (void)addCustomBeaconNameFilter:(NSString *)beaconPrefixName;
-
-/**
- * Remove filter of specified name.
- *
- * @param beaconPrefixName name want to removed from filter;
- * @return void
- */
-- (void)removeCustomBeaconNameFilter:(NSString *)beaconPrefixName;
 
 @end

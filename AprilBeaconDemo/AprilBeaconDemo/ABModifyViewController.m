@@ -17,11 +17,8 @@ typedef enum {
     BBTxPowerMinus23DBM = 3
 } BBTxPower;
 
-@interface ABModifyViewController () <UIActionSheetDelegate, UIAlertViewDelegate>
+@interface ABModifyViewController () 
 
-@property (nonatomic, strong) NSArray *txPowerIndex;
-
-@property (nonatomic) UInt8 deviceTxPower;
 
 @end
 
@@ -39,9 +36,8 @@ typedef enum {
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _txPowerIndex = @[@"0dBm", @"4dBm", @"-6dBm", @"-23dBm"];
     self.beacon.delegate = self;
-    [self.beacon connectToBeacon:ABConnectedReadStatedAllInfo];
+    [self.beacon connectToBeacon];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -63,19 +59,8 @@ typedef enum {
 - (void)beaconDidConnected:(ABBeacon *)beacon withError:(NSError *)error
 {
     if (error) {
-        [self showAlertWithMessage:@"connect failed"];
-        return;
+        NSLog(@"connect error: %@", error);
     }
-    _uuidField.text = self.beacon.proximityUUID.UUIDString;
-    _majorField.text = [NSString stringWithFormat:@"%@", self.beacon.major];
-    _minorField.text = [NSString stringWithFormat:@"%@", self.beacon.minor];
-    _powerField.text = [NSString stringWithFormat:@"%@", self.beacon.measuredPower];
-    _txPowerLabel.text = [NSString stringWithFormat:@"%@", _txPowerIndex[self.beacon.txPower]];
-    _deviceTxPower = self.beacon.txPower;
-    _advIntervalField.text = [NSString stringWithFormat:@"%@", self.beacon.advInterval];
-    NSLog(@"Firmware Revision: %@", self.beacon.firmwareRevision);
-    NSLog(@"Manufacturer Nmae: %@", self.beacon.manufacturerName);
-    NSLog(@"Model Number:%@", self.beacon.modelNumber);
 }
 
 - (void)beaconDidDisconnect:(ABBeacon *)beacon withError:(NSError *)error
@@ -83,163 +68,42 @@ typedef enum {
     
 }
 
-
-- (IBAction)saveAction:(id)sender
-{
-    [self doModify];
-}
-
-- (void)removeObjectFromModifyingArray:(id)obj
-{
-
-}
-
-
-- (void)doModify
-{
-    NSString *uuid = nil;
-    NSNumber *major = nil;
-    NSNumber *minor = nil;
-    NSNumber *mesuredPower = nil;
-    NSNumber *txPower = nil;
-    NSNumber *advInterval = nil;
-    NSString *newPassword = nil;
-    
-    if (![self.uuidField.text isEqualToString:self.beacon.proximityUUID.UUIDString]) {
-        if ([self isValidUUID:self.uuidField.text]) {
-            uuid = self.uuidField.text;
-        } else {
-            [self showAlertWithMessage:@"UUID is not valid"];
-            return;
-        }
-    }
-    
-    if ([self.majorField.text intValue] != [self.beacon.major intValue]) {
-        if (!([_majorField.text intValue] < 0 || [_majorField.text intValue] > 65535)) {
-            major = @([_majorField.text integerValue]);
-        } else {
-            [self showAlertWithMessage:@"Major is 0-65535"];
-            return;
-        }
-    }
-    
-    if ([self.minorField.text intValue] != [self.beacon.minor intValue]) {
-        if (!([_minorField.text intValue] < 0 || [_minorField.text intValue] > 65535)) {
-            minor = @([_minorField.text integerValue]);
-        } else {
-            [self showAlertWithMessage:@"Minor is 0-65535"];
-            return;
-        }
-    }
-    
-    if ([self.powerField.text intValue] != [self.beacon.measuredPower intValue]) {
-        if ([_powerField.text intValue] != 0 &&
-            ([_powerField.text intValue] >= -255 && [_powerField.text intValue] <= -1)) {
-        } else {
-            [self showAlertWithMessage:@"Measured power is from -1 to -255"];
-            return;
-        }
-    }
-    
-    if ([self.advIntervalField.text intValue] != [self.beacon.advInterval intValue]) {
-        if ([_advIntervalField.text intValue] >= 1 && [_advIntervalField.text intValue] <= 100) {
-            advInterval = @([[_advIntervalField text] integerValue]);
-        } else {
-            [self showAlertWithMessage:@"Advertise interval should be smaller than 100 and bigger than 1"];
-            return;
-        }
-    }
-    
-    if (_passcodeField.text.length == 12) {
-        newPassword = _passcodeField.text;
-    } else if (_passcodeField.text.length != 0) {
-        [self showAlertWithMessage:@"Password lenght should be 12"];
-        return;
-    }
-    
-    if (_deviceTxPower != self.beacon.txPower) {
-        txPower = @(_deviceTxPower );
-    }
-    
-    [self.beacon writeBeaconInfoByPassword:@"AprilBrother"
-                                      uuid:uuid
-                                     major:major
-                                     minor:minor
-                                   txPower:txPower
-                               advInterval:advInterval
-                             measuredPower:mesuredPower
-                               newpassword:newPassword
-                               autoRestart:YES
-                            withCompletion:^(NSError *error) {
-                                NSLog(@"error = %@", error);
-                                if (!error) {
-                                    NSLog(@"pdate successful and restart device");
-                                    [self.navigationController popViewControllerAnimated:YES];
-                                }
-                            }];
-    
-}
-
-- (void)showAlertWithMessage:(NSString *)message {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
-                                                    message:message
-                                                   delegate:nil
-                                          cancelButtonTitle:@"Ok"
-                                          otherButtonTitles:nil];
-    [alert show];
-}
-
-- (BOOL)isValidUUID:(NSString *)uuidString
-{
-    uuidString = [uuidString uppercaseString];
-    NSString * regex  = @"[0-9A-Z]{8}-[0-9A-Z]{4}-[0-9A-Z]{4}-[0-9A-Z]{4}-[0-9A-Z]{12}";
-    NSPredicate * pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
-    return [pred evaluateWithObject:uuidString];
-}
-
-- (NSString *)getTxPowerWithIndex:(NSInteger)index
-{
-    if ((index > BBTxPowerMinus23DBM) || (index < BBTxPower0DBM)) {
-        index = 0;
-    }
-    NSString *power = _txPowerIndex[index];
-    return [NSString stringWithFormat:@"Tx Power: %@", power];
-}
-#pragma mark - Table view data source
-
+#pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 1 && indexPath.row == kTxPowerCellIndex) {
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
-        [self.tableView endEditing:YES];
-        
-        UIActionSheet *action = [[UIActionSheet alloc] init];
-        action.delegate = self;
-        action.title = @"Tx Power";
-        
-        for (NSString *i in _txPowerIndex) {
-            [action addButtonWithTitle:i];
-        }
-        
-        action.cancelButtonIndex = [action addButtonWithTitle:@"cancel"];
-        
-        [action showInView:self.tableView];
+    if (indexPath.row == 0) {
+        // if the iBeacon supports Eddystone, you can use this method to change the broadcast to iBeacon and modify the parameters
+        // if the iBeacon doesn't support Eddystone, you can use both the new and old method to modify parameters.
+        // if you use new method to modify parameters for beacons not support Eddystone, you should set the boradcastType to ABBeaconBroadcastiBeacon, or you will get an error.
+        // The default password is AprilBrohter for AprilBeacon and 195660 for EEK iBeacon,
+        // advInterval's unit is 100ms.if you set it to 5, then actually it is 500ms
+        // if you just want to modify some of the parmaters, just set the no modified value to nil. as newpassword below.
+        [self.beacon writeBeaconInfoByPassword:@"AprilBrother"
+                                          uuid:@"E2C56DB5-DFFB-48D2-B060-D0F5A71096E0"
+                                         major:@(100)
+                                         minor:@(101)
+                                       txPower:ABTxPower0DBM
+                                   advInterval:@(100)
+                                 measuredPower:@(-58)
+                                   newpassword:nil
+                                 broadcastType:ABBeaconBroadcastiBeacon
+                                withCompletion:^(NSError *error) {
+                                    
+                                }];
+    } else if (indexPath.row == 1) {
+        [self.beacon writeEddyStoneUidAndReset:@"E2C56DB5-DFFB-48D2-B060-D0F5A71096E0"
+                                 broadcastType:ABBeaconBroadcastEddystoneUid
+                                      password:@"AprilBrother"
+                                    completion:^(NSError *error) {
+            
+        }];
+    } else {
+        [self.beacon writeEddyStoneURLAndReset:@"http://apbrother.com"
+                                 broadcastType:ABBeaconBroadcastEddystoneURL
+                                      password:@"AprilBrother" completion:^(NSError *error) {
+            
+        }];
     }
 }
-
-- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == actionSheet.cancelButtonIndex) {
-        return;
-    }
-    
-    _deviceTxPower = buttonIndex;
-    _txPowerLabel.text = [self getTxPowerWithIndex:_deviceTxPower];
-}
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
 
 @end

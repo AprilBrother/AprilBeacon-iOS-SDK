@@ -1,3 +1,11 @@
+## 1.0.0（Oct 20, 2015）
+Features:
+
+*  Support Google Eddystone protocol
+*  New update parameters method
+*  Different Class for discover iBeacons and modify parameters
+
+
 ## 1.3.0（Mar 19, 2015）
 Features:
 
