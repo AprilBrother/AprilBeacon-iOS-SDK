@@ -11,7 +11,8 @@ Pod::Spec.new do |s|
   s.preserve_paths = 'AprilSDK/libAprilBeaconSDK.a'
   s.vendored_libraries = 'AprilSDK/libAprilBeaconSDK.a'
   s.requires_arc = true
-  s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '$(PODS_ROOT)/AprilSDK' }
+  s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '$(PODS_ROOT)/AprilSDK', 
+                 'OTHER_LDFLAGS' => '-all_load' }
   s.license      = {
     :type => 'Copyright',
     :text => <<-LICENSE
