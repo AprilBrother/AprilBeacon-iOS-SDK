@@ -306,6 +306,9 @@
 - (void)writeEddyStoneURLAndReset:(NSString *)url
                     broadcastType:(ABBroadcastType)type
                          password:(NSString *)password
+                          txPower:(NSNumber *)txPower
+                      advInterval:(NSNumber *)advInterval
+                      newpassword:(NSString *)newpassword
                        completion:(ABCompletionBlock)completion;
 
 /**
@@ -324,6 +327,9 @@
 - (void)writeEddyStoneUidAndReset:(NSString *)uuidString
                     broadcastType:(ABBroadcastType)type
                          password:(NSString *)password
+                          txPower:(NSNumber *)txPower
+                      advInterval:(NSNumber *)advInterval
+                      newpassword:(NSString *)newpassword
                        completion:(ABCompletionBlock)completion;
 
 @end

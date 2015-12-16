@@ -17,7 +17,7 @@ typedef enum {
     BBTxPowerMinus23DBM = 3
 } BBTxPower;
 
-@interface ABModifyViewController () 
+@interface ABModifyViewController ()
 
 
 @end
@@ -71,6 +71,8 @@ typedef enum {
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSString *defaultPassword = @"195660";
+    
     if (indexPath.row == 0) {
         // if the iBeacon supports Eddystone, you can use this method to change the broadcast to iBeacon and modify the parameters
         // if the iBeacon doesn't support Eddystone, you can use both the new and old method to modify parameters.
@@ -78,31 +80,39 @@ typedef enum {
         // The default password is AprilBrohter for AprilBeacon and 195660 for EEK iBeacon,
         // advInterval's unit is 100ms.if you set it to 5, then actually it is 500ms
         // if you just want to modify some of the parmaters, just set the no modified value to nil. as newpassword below.
-        [self.beacon writeBeaconInfoByPassword:@"AprilBrother"
+        [self.beacon writeBeaconInfoByPassword:defaultPassword
                                           uuid:@"E2C56DB5-DFFB-48D2-B060-D0F5A71096E0"
                                          major:@(100)
                                          minor:@(101)
-                                       txPower:ABTxPower0DBM
-                                   advInterval:@(100)
+                                       txPower:@(ABTxPower0DBM)
+                                   advInterval:@(5)
                                  measuredPower:@(-58)
                                    newpassword:nil
                                  broadcastType:ABBeaconBroadcastiBeacon
                                 withCompletion:^(NSError *error) {
-                                    
+                                    NSLog(@"修改成功");
                                 }];
     } else if (indexPath.row == 1) {
         [self.beacon writeEddyStoneUidAndReset:@"E2C56DB5-DFFB-48D2-B060-D0F5A71096E0"
                                  broadcastType:ABBeaconBroadcastEddystoneUid
-                                      password:@"AprilBrother"
+                                      password:defaultPassword
+                                       txPower:nil
+                                   advInterval:@(5)
+                                   newpassword:nil
                                     completion:^(NSError *error) {
-            
-        }];
+                                        NSLog(@"修改成功");
+                                    }];
+        
     } else {
         [self.beacon writeEddyStoneURLAndReset:@"http://apbrother.com"
                                  broadcastType:ABBeaconBroadcastEddystoneURL
-                                      password:@"AprilBrother" completion:^(NSError *error) {
-            
-        }];
+                                      password:defaultPassword
+                                       txPower:ABTxPower0DBM
+                                   advInterval:@(5)
+                                   newpassword:nil
+                                    completion:^(NSError *error) {
+                                        NSLog(@"修改成功");
+                                    }];
     }
 }
 

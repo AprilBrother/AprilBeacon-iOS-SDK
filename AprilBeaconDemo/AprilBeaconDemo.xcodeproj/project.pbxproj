@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E23E40781BD5DC2B00B17F49 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E23E40771BD5DC2B00B17F49 /* LaunchScreen.xib */; settings = {ASSET_TAGS = (); }; };
+		E23E40781BD5DC2B00B17F49 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E23E40771BD5DC2B00B17F49 /* LaunchScreen.xib */; };
 		E254A8D419E7B4DE007BBE3C /* libAprilBeaconSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E254A8D319E7B4DE007BBE3C /* libAprilBeaconSDK.a */; };
 		E26EB6AC197F5323007619B1 /* ABModifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E26EB6AB197F5323007619B1 /* ABModifyViewController.m */; };
 		E26EB6B4197F5374007619B1 /* JVFloatLabeledTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = E26EB6AF197F5374007619B1 /* JVFloatLabeledTextField.m */; };
@@ -22,7 +22,7 @@
 		E2ED5E611919E1F000C0BF2C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ED5E601919E1F000C0BF2C /* main.m */; };
 		E2ED5E651919E1F000C0BF2C /* ABAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ED5E641919E1F000C0BF2C /* ABAppDelegate.m */; };
 		E2ED5E681919E1F000C0BF2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2ED5E661919E1F000C0BF2C /* Main.storyboard */; };
-		E2ED5E6B1919E1F000C0BF2C /* ABViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ED5E6A1919E1F000C0BF2C /* ABViewController.m */; };
+		E2ED5E6B1919E1F000C0BF2C /* ABBeaconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ED5E6A1919E1F000C0BF2C /* ABBeaconViewController.m */; };
 		E2ED5E6D1919E1F000C0BF2C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2ED5E6C1919E1F000C0BF2C /* Images.xcassets */; };
 		E2ED5E741919E1F000C0BF2C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2ED5E731919E1F000C0BF2C /* XCTest.framework */; };
 		E2ED5E751919E1F100C0BF2C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2ED5E541919E1F000C0BF2C /* Foundation.framework */; };
@@ -81,8 +81,8 @@
 		E2ED5E631919E1F000C0BF2C /* ABAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABAppDelegate.h; sourceTree = "<group>"; };
 		E2ED5E641919E1F000C0BF2C /* ABAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABAppDelegate.m; sourceTree = "<group>"; };
 		E2ED5E671919E1F000C0BF2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E2ED5E691919E1F000C0BF2C /* ABViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABViewController.h; sourceTree = "<group>"; };
-		E2ED5E6A1919E1F000C0BF2C /* ABViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABViewController.m; sourceTree = "<group>"; };
+		E2ED5E691919E1F000C0BF2C /* ABBeaconViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABBeaconViewController.h; sourceTree = "<group>"; };
+		E2ED5E6A1919E1F000C0BF2C /* ABBeaconViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABBeaconViewController.m; sourceTree = "<group>"; };
 		E2ED5E6C1919E1F000C0BF2C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E2ED5E721919E1F000C0BF2C /* AprilBeaconDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AprilBeaconDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2ED5E731919E1F000C0BF2C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -221,8 +221,8 @@
 				E2ED5E631919E1F000C0BF2C /* ABAppDelegate.h */,
 				E2ED5E641919E1F000C0BF2C /* ABAppDelegate.m */,
 				E2ED5E661919E1F000C0BF2C /* Main.storyboard */,
-				E2ED5E691919E1F000C0BF2C /* ABViewController.h */,
-				E2ED5E6A1919E1F000C0BF2C /* ABViewController.m */,
+				E2ED5E691919E1F000C0BF2C /* ABBeaconViewController.h */,
+				E2ED5E6A1919E1F000C0BF2C /* ABBeaconViewController.m */,
 				E2ED5E6C1919E1F000C0BF2C /* Images.xcassets */,
 				E2ED5E5B1919E1F000C0BF2C /* Supporting Files */,
 				E23E40771BD5DC2B00B17F49 /* LaunchScreen.xib */,
@@ -316,6 +316,11 @@
 				TargetAttributes = {
 					E2ED5E501919E1F000C0BF2C = {
 						DevelopmentTeam = B394B8PA37;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
 					};
 					E2ED5E711919E1F000C0BF2C = {
 						TestTargetID = E2ED5E501919E1F000C0BF2C;
@@ -372,7 +377,7 @@
 				E26EB6B4197F5374007619B1 /* JVFloatLabeledTextField.m in Sources */,
 				E2ED5E611919E1F000C0BF2C /* main.m in Sources */,
 				E2ED5EE7191B32C600C0BF2C /* ABSelectDeviceViewController.m in Sources */,
-				E2ED5E6B1919E1F000C0BF2C /* ABViewController.m in Sources */,
+				E2ED5E6B1919E1F000C0BF2C /* ABBeaconViewController.m in Sources */,
 				E26EB6B5197F5374007619B1 /* JVFloatLabeledTextView.m in Sources */,
 				E26EB6B6197F5374007619B1 /* NSString+TextDirectionality.m in Sources */,
 				E2D134981ABA973400A7A3BF /* ABTransmitters.m in Sources */,

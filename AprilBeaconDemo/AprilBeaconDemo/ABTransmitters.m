@@ -65,6 +65,16 @@
     return YES;
 }
 
+- (BOOL)isExist:(NSString *)uuid {
+    NSMutableArray *mutableResult = [[self transmitters] mutableCopy];
+    for (NSDictionary *trans in mutableResult) {
+        if ([trans[@"uuid"] isEqualToString:uuid]) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
 - (void)replaceAtIndex:(NSInteger)index withTransmitter:(NSDictionary *)transmitter {
     NSMutableArray *mutableResult = [[self transmitters] mutableCopy];
     [mutableResult replaceObjectAtIndex:index withObject:transmitter];
@@ -83,6 +93,9 @@
 
 - (void)addHistoryUUID:(NSString *)uuid
 {
+    if (!uuid || uuid.length == 0) {
+        return ;
+    }
     NSMutableArray *result = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:kHistoryUUIDKey]];
     if ([result indexOfObject:uuid] == NSNotFound) {
         [result addObject:uuid];
@@ -113,7 +126,7 @@
                           @"power" : @-59
                           },
                       @{
-                          @"name" : @"Apple AirLocate",
+                          @"name" : @"Apple AirLocate2",
                           @"uuid" : @"74278BDA-B644-4520-8F0C-720EAF059935",
                           @"major" : @0,
                           @"minor" : @0,
@@ -126,9 +139,10 @@
                           @"minor" : @0,
                           @"power" : @-59
                           },
+
                       @{
-                          @"name" : @"AprilBeacon123",
-                          @"uuid" : @"999557E7-23E4-4BED-988A-A02FE47F9001",
+                          @"name" : @"WeixinForBeacon",
+                          @"uuid" : @"FDA50693-A4E2-4FB1-AFCF-C6EB07647825",
                           @"major" : @0,
                           @"minor" : @0,
                           @"power" : @-59

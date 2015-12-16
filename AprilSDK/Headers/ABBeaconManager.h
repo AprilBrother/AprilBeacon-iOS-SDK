@@ -4,7 +4,6 @@
 //
 //  Created by AprilBrother LLC on 14-4-1.
 //  Copyright (c) 2014年 AprilBrother LLC. All rights reserved.
-//
 
 #import <Foundation/Foundation.h>
 #import "ABBeaconRegion.h"
@@ -140,6 +139,16 @@ monitoringDidFailForRegion:(ABBeaconRegion *)region
  Allows to avoid beacons with unknown state (proximity == 0), when ranging. Default value is NO.
  */
 @property (nonatomic) BOOL avoidUnknownStateBeacons;
+
+/**
+ *  See CLLocationManager requestWhenInUseAuthorization
+ */
+- (void)requestWhenInUseAuthorization;
+
+/**
+ *  See CLLocationManager requestAlwaysAuthorization
+ */
+- (void)requestAlwaysAuthorization;
 
 /*
  *  monitoredRegions

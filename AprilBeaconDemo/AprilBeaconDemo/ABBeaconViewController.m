@@ -6,23 +6,25 @@
 //  Copyright (c) 2014年 AprilBrother. All rights reserved.
 //
 
-#import "ABViewController.h"
+#import "ABBeaconViewController.h"
 #import "ABTransmitters.h"
 
-@interface ABViewController ()
+@interface ABBeaconViewController ()
 
 @property (nonatomic, strong) ABBeaconManager *beaconManager;
 @property (nonatomic, strong) NSMutableDictionary *tableData;
 
 @end
 
-@implementation ABViewController
+@implementation ABBeaconViewController
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     if (self = [super initWithCoder:aDecoder]) {
         self.beaconManager = [[ABBeaconManager alloc] init];
         self.beaconManager.delegate = self;
+        
+        [self.beaconManager requestAlwaysAuthorization];
         
         _tableData = [NSMutableDictionary dictionary];
     }
@@ -101,6 +103,7 @@
 #pragma mark - ABBeaconManagerDelegate
 - (void)beaconManager:(ABBeaconManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(ABBeaconRegion *)region
 {
+    NSLog(@"beacons = %@", beacons);
     [self.refreshControl endRefreshing];
     [_tableData removeObjectForKey:region];
     [_tableData setObject:beacons forKey:region];
