@@ -310,7 +310,7 @@ const GLubyte Indices[] = {
         self.lightLabel.text = [NSString stringWithFormat:@"Light：%.f", self.light];
     }
     
-    float aspect = fabsf(self.view.bounds.size.width / self.view.bounds.size.height);
+    float aspect = fabs(self.view.bounds.size.width / self.view.bounds.size.height);
     GLKMatrix4 projectionMatrix = GLKMatrix4MakePerspective(GLKMathDegreesToRadians(65.0f), aspect, 4.0f, 10.0f);
     self.effect.transform.projectionMatrix = projectionMatrix;
     
