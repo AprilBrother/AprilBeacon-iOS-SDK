@@ -4,6 +4,7 @@
 //
 //  Created by AprilBrother LLC on 14-4-1.
 //  Copyright (c) 2014年 AprilBrother LLC. All rights reserved.
+//  version 2.0.3
 
 #import <Foundation/Foundation.h>
 #import "ABBeaconRegion.h"
@@ -140,6 +141,8 @@ monitoringDidFailForRegion:(ABBeaconRegion *)region
  */
 @property (nonatomic) BOOL avoidUnknownStateBeacons;
 
+
++ (CLAuthorizationStatus)authorizationStatus;
 /**
  *  See CLLocationManager requestWhenInUseAuthorization
  */
