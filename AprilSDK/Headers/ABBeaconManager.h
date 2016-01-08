@@ -4,11 +4,7 @@
 //
 //  Created by AprilBrother LLC on 14-4-1.
 //  Copyright (c) 2014年 AprilBrother LLC. All rights reserved.
-<<<<<<< HEAD
 //  version 2.0.3
-=======
-//
->>>>>>> a4c2f9a16b6e3c064027a652af35ad805d76684e
 
 #import <Foundation/Foundation.h>
 #import "ABBeaconRegion.h"
@@ -145,19 +141,12 @@ monitoringDidFailForRegion:(ABBeaconRegion *)region
  */
 @property (nonatomic) BOOL avoidUnknownStateBeacons;
 
-<<<<<<< HEAD
-
-+ (CLAuthorizationStatus)authorizationStatus;
-/**
- *  See CLLocationManager requestWhenInUseAuthorization
-=======
 /*
  *  authorizationStatus
  *
  *  Discussion:
  *      Get current authorization status
  *  @return current authorization status
->>>>>>> a4c2f9a16b6e3c064027a652af35ad805d76684e
  */
 + (CLAuthorizationStatus)authorizationStatus;
 
@@ -167,6 +156,7 @@ monitoringDidFailForRegion:(ABBeaconRegion *)region
  *  Discussion:
  *       Request location when in use authorization
  */
+
 - (void)requestWhenInUseAuthorization;
 /*
  *  requestAlwaysAuthorization
