@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "AprilSDK"
-  s.version      = "2.0.2"
+  s.version      = "2.0.3"
   s.summary      = "AprilBeacon SDK for iOS, use this library communicate with beacons."
   s.homepage     = "https://github.com/AprilBrother/AprilBeacon-iOS-SDK"
   s.author       = { "AprilBrother" => "tech@aprbrother.com" }
