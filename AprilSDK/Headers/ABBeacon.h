@@ -332,4 +332,16 @@
                       newpassword:(NSString *)newpassword
                        completion:(ABCompletionBlock)completion;
 
+/**
+ *  Writes AT command to connected beacon
+ *
+ *
+ *  @param data writing data
+ *  @param completion   callback
+ *
+ *  @return void
+ */
+- (void)writeCommandWithData:(NSData *)data
+                  completion:(ABCompletionBlock)completion;
+
 @end
