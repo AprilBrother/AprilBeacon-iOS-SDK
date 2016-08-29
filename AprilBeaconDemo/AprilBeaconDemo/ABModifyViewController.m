@@ -71,13 +71,13 @@ typedef enum {
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *defaultPassword = @"195660";
+    NSString *defaultPassword = @"AprilBrother";
     
     if (indexPath.row == 0) {
         // if the iBeacon supports Eddystone, you can use this method to change the broadcast to iBeacon and modify the parameters
         // if the iBeacon doesn't support Eddystone, you can use both the new and old method to modify parameters.
         // if you use new method to modify parameters for beacons not support Eddystone, you should set the boradcastType to ABBeaconBroadcastiBeacon, or you will get an error.
-        // The default password is AprilBrohter for AprilBeacon and 195660 for EEK iBeacon,
+        // The default password is AprilBrother for AprilBeacon and 195660 for EEK iBeacon,
         // advInterval's unit is 100ms.if you set it to 5, then actually it is 500ms
         // if you just want to modify some of the parmaters, just set the no modified value to nil. as newpassword below.
         [self.beacon writeBeaconInfoByPassword:defaultPassword
