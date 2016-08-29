@@ -90,7 +90,11 @@ typedef enum {
                                    newpassword:nil
                                  broadcastType:ABBeaconBroadcastiBeacon
                                 withCompletion:^(NSError *error) {
-                                    NSLog(@"修改成功");
+                                    if (error == nil) {
+                                        NSLog(@"修改成功");
+                                    } else {
+                                        NSLog(@"修改失败%@", error);
+                                    }
                                 }];
     } else if (indexPath.row == 1) {
         [self.beacon writeEddyStoneUidAndReset:@"E2C56DB5-DFFB-48D2-B060-D0F5A71096E0"
@@ -100,7 +104,11 @@ typedef enum {
                                    advInterval:@(5)
                                    newpassword:nil
                                     completion:^(NSError *error) {
-                                        NSLog(@"修改成功");
+                                        if (error == nil) {
+                                            NSLog(@"修改成功");
+                                        } else {
+                                            NSLog(@"修改失败%@", error);
+                                        }
                                     }];
         
     } else {
@@ -111,7 +119,11 @@ typedef enum {
                                    advInterval:@(5)
                                    newpassword:nil
                                     completion:^(NSError *error) {
-                                        NSLog(@"修改成功");
+                                        if (error == nil) {
+                                            NSLog(@"修改成功");
+                                        } else {
+                                            NSLog(@"修改失败%@", error);
+                                        }
                                     }];
     }
 }
