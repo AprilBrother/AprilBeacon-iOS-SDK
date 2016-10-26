@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.license      = {
     :type => 'Copyright',
     :text => <<-LICENSE
-      Copyright 2013 AprilBrother LLC, Inc. All rights reserved.
+      Copyright 2016 AprilBrother LLC, Inc. All rights reserved.
       LICENSE
   }
 end
