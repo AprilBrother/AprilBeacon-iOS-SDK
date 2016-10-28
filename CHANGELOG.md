@@ -1,4 +1,9 @@
-## 1.0.0（Oct 20, 2015）
+## 2.0.6（Oct 26, 2016）
+Features:
+
+* Parse advertise data when in bluetooth mode
+
+## 2.0.0（Oct 20, 2015）
 Features:
 
 *  Support Google Eddystone protocol
@@ -134,3 +139,4 @@ Features:
 *  Ranging and monitoring April beacons
 *  Beacon connection support
 *  Read/Write of Major, Minor, Power and Fequency
+
