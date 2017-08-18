@@ -146,6 +146,13 @@
                           @"major" : @0,
                           @"minor" : @0,
                           @"power" : @-59
+                          },
+                      @{
+                          @"name" : @"EEK Beacon",
+                          @"uuid" : @"B5B182C7-EAB1-4988-AA99-B5C1517008D9",
+                          @"major" : @0,
+                          @"minor" : @0,
+                          @"power" : @-59
                           }
                       ];
     [[NSUserDefaults standardUserDefaults] setObject:data forKey:kTransmitterKey];
